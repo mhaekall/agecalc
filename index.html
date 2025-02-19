@@ -881,6 +881,11 @@ function calculateAge() {
             const years = Math.floor(diff.years);
             const months = Math.floor(diff.months);
             const days = Math.floor(diff.days);
+                
+                 // Calculate total months and days
+            const totalMonths = Math.floor(now.diff(birthDate, 'months').months);
+            const totalDays = Math.floor(now.diff(birthDate, 'days').days);
+
 
             // Get zodiac information
             const zodiacInfo = getZodiacSign(birthDate.month, birthDate.day);
@@ -912,6 +917,12 @@ const birthdayCountdownMessage = formatTimeToNextBirthday(timeToNextBirthday.mon
                 <div class="result-item" style="background: ${isDarkMode ? 'dark-mode' : ''}">
                     <span id="days" style="color: ${isDarkMode ? '#ff9f9f' : '#ff6b6b'}; margin-right: 0.5rem;">-</span> Hari
                 </div>
+                <div class="result-item" style="background: ${isDarkMode ? 'dark-mode' : ''}">
+                                <span id="totalMonths" style="color: ${isDarkMode ? '#ff9f9f' : '#ff6b6b'}; margin-right: 0.5rem;">${totalMonths}</span> Total Bulan 
+                            </div>
+                            <div class="result-item" style="background: ${isDarkMode ? 'dark-mode' : ''}">
+                                <span id="totalDays" style="color: ${isDarkMode ? '#ff9f9f' : '#ff6b6b'}; margin-right: 0.5rem;">${totalDays}</span> Total Hari
+                            </div>
             </div>
             <div style="font-size: 1.1em; margin-top: 10px;">
                 <strong>Tanggal Lahir (Hijriah):</strong><br>
@@ -995,10 +1006,13 @@ const birthdayCountdownMessage = formatTimeToNextBirthday(timeToNextBirthday.mon
             resultDiv.style.display = "block";
             loadingSpinner.style.display = "none";
 
-            // Update result elements with animation
+            // No need to update with animation for total months and days as they are static values
             updateResultWithAnimation('years', years);
             updateResultWithAnimation('months', months);
             updateResultWithAnimation('days', days);
+            updateResultWithAnimation('totalMonths', totalMonths);
+            updateResultWithAnimation('totalDays', totalDays);
+
 
             // Animasi smooth scroll ke hasil
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1007,7 +1021,7 @@ const birthdayCountdownMessage = formatTimeToNextBirthday(timeToNextBirthday.mon
             errorDiv.textContent = error.message;
             loadingSpinner.style.display = "none";
         }
-    }, 1000); // Simulasi loading selama 1 detik
+    }, 580); // Simulasi loading selama 1 detik
 }
 
 // Tambahkan event listener untuk dark mode toggle
@@ -1370,21 +1384,22 @@ function getRandomSeriousMotivationalQuote() {
     const quotes = [
         "Konsistensi adalah kunci menuju kesuksesan.",
         "Fokus pada tujuan, bukan hambatan.",
+        "Kerja keras mengalahkan bakat ketika bakat tidak bekerja keras.",
         "Kesuksesan adalah hasil dari persiapan dan kerja keras.",
-        "Setiap langkah membawa Anda lebih dekat ke tujuan.",
+        "Jangan menyerah, setiap langkah membawa Anda lebih dekat ke tujuan.",
         "Keberhasilan membutuhkan disiplin dan ketekunan.",
-        "mereka yang berani gagal bisa mencapai keberhasilan besar.",
+        "Hanya mereka yang berani gagal yang bisa mencapai keberhasilan besar.",
         "Waktu adalah aset berharga, gunakan dengan bijak.",
         "Kesabaran dan ketekunan adalah fondasi keberhasilan.",
         "Tetap fokus, hasil akan mengikuti usaha.",    
-        "Setiap hari adalah kesempatan untuk menjadi lebih baik.",
-        "Keberhasilan dimulai dari langkah kecil.",
-        "Percaya pada dirimu, kamu bisa mencapai apa saja!",    
-        "Jangan takut gagal, itu bagian dari proses.",
-        "Kamu lebih kuat dari yang kamu pikirkan.",
-        "Lakukan yang terbaik, dan biarkan sisanya mengalir.",
-        "Hidup adalah petualangan, nikmati setiap langkahnya!",
-        "Kamu adalah inspirasi bagi dirimu sendiri."
+    "Setiap hari adalah kesempatan untuk menjadi lebih baik.",
+    "Keberhasilan dimulai dari langkah kecil.",
+    "Percaya pada dirimu, kamu bisa mencapai apa saja!",    
+    "Jangan takut gagal, itu bagian dari proses.",
+    "Kamu lebih kuat dari yang kamu pikirkan.",
+    "Lakukan yang terbaik, dan biarkan sisanya mengalir.",
+    "Hidup adalah petualangan, nikmati setiap langkahnya!",
+    "Kamu adalah inspirasi bagi dirimu sendiri."
 
     ];
     return quotes[Math.floor(Math.random() * quotes.length)];
