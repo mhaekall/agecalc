@@ -724,10 +724,46 @@ body.dark-mode label[for="birthHijri"] {
     width: 24px;
     height: 24px;
     stroke: white;
-}            
+}
+/* CSS for the footer */
+         #footer {
+            background-color: #f8f9fa;
+            padding: 0px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .footer-content a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #e64c3c;
+        }
+
+        /* Dark mode styles for footer */
+        body.dark-mode #footer {
+            background-color: #121212;
+        }
+
+        body.dark-mode .footer-content a {
+            color: #ff9f9f;
+        }
+
+        body.dark-mode .footer-content a:hover {
+            color: #ffb3b3;
         }
     </style>
 </head>
+
 <body>
     <div class="theme-toggle-wrapper">
         <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
@@ -750,7 +786,10 @@ body.dark-mode label[for="birthHijri"] {
         <div id="loading" class="loading-spinner"></div>
         <div id="result"></div>
         
+        
+        
     </div>
+    
 
     <script>
         // Flatpickr Initialization with original setup
@@ -1002,6 +1041,12 @@ const birthdayCountdownMessage = formatTimeToNextBirthday(timeToNextBirthday.mon
         </svg>
     </a>
 </div>
+                <footer id="footer">
+        <div class="footer-content">
+            <a href="#" onclick="showPolicy(event)">Kebijakan Privasi & Cookie</a>
+        </div>
+    </footer>
+                
 `;
 
             // Show result and hide loading
@@ -1757,7 +1802,61 @@ function showToast(message) {
         }, 3000);
     });
 }
+    function showPolicy(e) {
+    e.preventDefault();
+    const policyText = `
+        <h3>Kebijakan Privasi & Cookie</h3>
+        <p><strong>Tanggal Efektif:</strong> 19 Februari 2025</p>
+        <p><strong>Informasi yang Kami Kumpulkan:</strong> Hanya tanggal lahir untuk menghitung usia, tidak disimpan.</p>
+        <p><strong>Penggunaan Informasi:</strong> Untuk perhitungan usia dan zodiak.</p>
+        <p><strong>Berbagi Informasi:</strong> Tidak dibagikan ke pihak ketiga.</p>
+        <p><strong>Cookie:</strong> Digunakan untuk menyimpan preferensi tema dan notifikasi cookie.</p>
+        <p><strong>Pengaturan Cookie:</strong> Dapat diatur di browser Anda.</p>
+        <p><strong>Perubahan ke Kebijakan:</strong> Akan diumumkan di sini.</p>
+        <p><strong>Kontak:</strong> moehamadhkl@gmail.com</p>
+    `;
+
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: ${isDarkMode ? '#1a1a1a' : 'white'};
+        color: ${isDarkMode ? '#ecf0f1' : '#333333'};
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 1001;
+    `;
+    modal.innerHTML = policyText + '<button onclick="this.parentElement.remove();" style="margin-top: 15px; padding: 5px 10px; background-color: ' + (isDarkMode ? '#333' : '#f0f0f0') + '; color: ' + (!isDarkMode ? '#333' : '#f0f0f0') + ';">Tutup</button>';
+
+    document.body.appendChild(modal);
+}
+    
+    // Variables to track scroll direction
+    let lastScrollTop = 0;
+    const footer = document.getElementById('footer');
+
+    window.addEventListener('scroll', function() {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st < lastScrollTop) {
+            // Scrolling up
+            footer.style.bottom = '0';
+        } else {
+            // Scrolling down
+            footer.style.bottom = '-50px'; // Adjust this value based on your footer's height
+        }
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
+
+    // Existing scripts...
 
    </script>
+    
 </body>
+    
 </html>
