@@ -20,7 +20,8 @@ document.getElementById("birthdate").addEventListener("change", function () {
 // Dark Mode Management
 let isDarkMode = false;
 
-function toggleDarkMode() {
+function toggleDarkMode(e) {
+    e.preventDefault(); // Mencegah navigasi default
     isDarkMode = !isDarkMode;
     document.body.classList.toggle('dark-mode');
     
@@ -28,19 +29,32 @@ function toggleDarkMode() {
         '.calculator-container, h2, label, .flatpickr-input, ' +
         '.theme-toggle, #result, .error, .zodiac-card, ' +
         '.flatpickr-calendar, .flatpickr-months, .flatpickr-weekdays, ' +
-        '.flatpickr-day, #birthHijri, label[for="birthHijri"], #footer'
+        '.flatpickr-day, #birthHijri, label[for="birthHijri"], #footer, ' +
+        '.nav-container, .nav-link, .dropdown-content, .mobile-menu, .search-input'
     );
     
     elementsToToggle.forEach(element => {
         if (element) element.classList.toggle('dark-mode');
     });
     
+    // Update ikon theme toggle
+    const themeIcon = document.querySelector('.theme-toggle-circle i');
+    if (isDarkMode) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+    
     localStorage.setItem('darkMode', isDarkMode);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) toggleDarkMode();
+    if (savedDarkMode) {
+        toggleDarkMode({ preventDefault: () => {} }); // Panggil tanpa event untuk inisialisasi
+    }
 });
 
 // Confetti Animation
@@ -371,8 +385,9 @@ function calculateTimeToNextBirthday(birthDate) {
     const diff = nextBirthday.diff(now, ['months', 'days']);
     return { months: Math.floor(diff.months), days: Math.floor(diff.days) };
 }
+// ... (bagian sebelumnya tetap sama) ...
 
-// Sharing Function
+// Sharing Function (lanjutan)
 async function shareResult() {
     const resultDiv = document.getElementById("result");
     if (!resultDiv || resultDiv.style.display === "none") return;
@@ -674,76 +689,50 @@ function showToast(message) {
         }, 3000);
     });
 }
-// ... (Kode sebelumnya seperti flatpickr initialization, toggleDarkMode, dll tetap sama) ...
 
-// Fungsi untuk menampilkan modal berdasarkan tipe
-function showPolicy(e, type) {
-    e.preventDefault();
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+const navContainer = document.querySelector('.nav-container');
 
-    let content;
-    switch (type) {
-        case 'privacy':
-            content = `
-                <h3>Kebijakan Privasi</h3>
-                <p><strong>Tanggal Efektif:</strong> 20 Februari 2025</p>
-                <p><strong>Informasi yang Kami Kumpulkan:</strong> Kami hanya mengumpulkan tanggal lahir yang Anda masukkan untuk menghitung usia. Data ini tidak disimpan di server kami setelah perhitungan selesai.</p>
-                <p><strong>Penggunaan Informasi:</strong> Tanggal lahir digunakan untuk menghitung usia Anda, menentukan zodiak, shio, dan waktu menuju ulang tahun berikutnya.</p>
-                <p><strong>Berbagi Informasi:</strong> Kami tidak membagikan informasi Anda dengan pihak ketiga.</p>
-                <p><strong>Hak Anda:</strong> Anda berhak untuk tidak memasukkan data apa pun jika tidak ingin menggunakannya.</p>
-                <p><strong>Kontak:</strong> Jika Anda tertarik untuk berkontribusi atau menyarankan ide, email kami di <a href="mailto:moehamadhkl@gmail.com">moehamadhkl@gmail.com</a>.</p>
-            `;
-            break;
-        case 'cookie':
-            content = `
-                <h3>Kebijakan Cookie</h3>
-                <p><strong>Tanggal Efektif:</strong> 20 Februari 2025</p>
-                <p><strong>Penggunaan Cookie:</strong> Kami menggunakan cookie untuk menyimpan preferensi tema (light/dark mode) di browser Anda melalui localStorage.</p>
-                <p><strong>Jenis Cookie:</strong> Cookie ini bersifat teknis dan tidak digunakan untuk pelacakan atau iklan.</p>
-                <p><strong>Pengaturan Cookie:</strong> Anda dapat mengelola cookie melalui pengaturan browser Anda. Menonaktifkan cookie mungkin memengaruhi fungsi tema.</p>
-                <p><strong>Persetujuan:</strong> Dengan menggunakan situs ini, Anda menyetujui penggunaan cookie seperti yang dijelaskan.</p>
-                <p><strong>Kontak:</strong> Untuk kolaborasi atau umpan balik, hubungi kami di <a href="mailto:moehamadhkl@gmail.com">moehamadhkl@gmail.com</a>.</p>
-            `;
-            break;
-        case 'about':
-            content = `
-                <h3>Tentang AgeCalc</h3>
-                <p><strong>Deskripsi:</strong> AgeCalc adalah aplikasi web sederhana untuk menghitung usia Anda berdasarkan tanggal lahir, lengkap dengan informasi zodiak dan shio.</p>
-                <p><strong>Tujuan:</strong> Dibuat untuk memberikan pengalaman yang menyenangkan dan informatif tentang usia Anda dalam format yang modern dan interaktif.</p>
-                <p><strong>Pengembang:</strong> Dibuat oleh <a href="https://www.instagram.com/mhaekalll_" target="_blank">mhaekalll</a>.</p>
-                <p><strong>Kontak:</strong> Untuk saran atau pertanyaan, email kami di <a href="mailto:moehamadhkl@gmail.com">moehamadhkl@gmail.com</a>.</p>
-            `;
-            break;
-        case 'services':
-            content = `
-                <h3>Fitur AgeCalc</h3>
-                <p><strong>Perhitungan Usia:</strong> Hitung usia Anda dalam tahun, bulan, dan hari berdasarkan tanggal lahir.</p>
-                <p><strong>Konversi Hijriah:</strong> Lihat tanggal lahir Anda dalam kalender Hijriah menggunakan API Aladhan.</p>
-                <p><strong>Zodiak & Shio:</strong> Dapatkan informasi tentang zodiak dan shio Anda berdasarkan tanggal dan tahun lahir.</p>
-                <p><strong>Berbagi Hasil:</strong> Bagikan hasil perhitungan Anda dalam bentuk gambar atau teks melalui Web Share API.</p>
-                <p><strong>Tema Gelap:</strong> Nikmati pengalaman visual dengan opsi tema terang atau gelap.</p>
-            `;
-            break;
-        default:
-            content = `<p>Informasi tidak tersedia.</p>`;
-    }
+mobileMenuBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Mencegah default behavior
+    mobileMenu.classList.toggle('active');
+});
 
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: ${isDarkMode ? '#1a1a1a' : 'white'};
-        color: ${isDarkMode ? '#ecf0f1' : '#333333'};
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 90%;
-        max-height: 90%;
-        overflow-y: auto;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        z-index: 1001;
-    `;
-    modal.innerHTML = content + '<button onclick="this.parentElement.remove();" style="margin-top: 15px; padding: 5px 10px; background-color: ' + (isDarkMode ? '#333' : '#f0f0f0') + '; color: ' + (!isDarkMode ? '#333' : '#f0f0f0') + ';">Tutup</button>';
+// Scroll Effect dengan Smooth Hide/Show Navbar
+let lastScroll = 0;
 
-    document.body.appendChild(modal);
+if (navContainer) { // Pastikan elemen ada sebelum menambahkan event listener
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        console.log('Current Scroll:', currentScroll, 'Last Scroll:', lastScroll); // Debug untuk memantau scroll
+
+        if (currentScroll > lastScroll && currentScroll > 50) {
+            // Scroll ke bawah, sembunyikan navbar
+            navContainer.classList.add('hidden');
+        } else {
+            // Scroll ke atas, tampilkan navbar
+            navContainer.classList.remove('hidden');
+        }
+
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Reset jika di atas
+
+        // Efek scrolled saat scroll lebih dari 50px
+        if (currentScroll > 50) {
+            navContainer.classList.add('nav-scrolled');
+        } else {
+            navContainer.classList.remove('nav-scrolled');
+        }
+    });
+} else {
+    console.error('Nav container not found!');
 }
+
+// Close Mobile Menu on Click Outside
+document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+    }
+});
