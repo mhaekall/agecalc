@@ -778,6 +778,66 @@ body.dark-mode .footer-content a:hover {
         font-size: 0.45em; /* Ukuran tetap kecil */
     }
 }
+.content-section {
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 800px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-default);
+}
+
+.content-section.dark-mode {
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feature-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.feature-list li {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-default);
+}
+
+.feature-list li.dark-mode {
+    background: rgba(255, 107, 107, 0.05);
+}
+
+@media (max-width: 576px) {
+    .content-section {
+        padding: 15px;
+        margin: 15px 0;
+        width: 85%;
+    }
+
+    .feature-list li {
+        margin: 10px 0;
+        padding: 8px;
+    }
+}
+.calculator-container.full-screen {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 10px;
+    margin: 0;
+}
+.content-section.full-content {
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 1000px;
+    height: calc(100vh - 120px); /* Menyesuaikan dengan tinggi judul dan tombol */
+    overflow-y: auto;
+}
+
 
 /* Animasi untuk transisi smooth navbar */
 @keyframes slideDown {
