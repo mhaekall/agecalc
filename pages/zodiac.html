@@ -3,132 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jelajahi semua zodiak dengan efek 3D premium, suara elegan, dan animasi modern di AgeCalc.">
-    <meta name="keywords" content="zodiak, astrologi, aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces, premium">
+    <meta name="description" content="Jelajahi zodiak Anda dengan desain premium modern di AgeCalc.">
+    <meta name="keywords" content="zodiak, astrologi, premium, modern">
     <meta name="author" content="Your Name">
-    <meta property="og:title" content="Daftar Zodiak Premium - AgeCalc">
-    <meta property="og:description" content="Temukan zodiak Anda dengan desain 3D elegan, suara ambient, dan fitur premium di AgeCalc.">
-    <meta property="og:image" content="/images/zodiac-premium-preview.png">
-    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/zodiac">
     <title>Daftar Zodiak Premium - AgeCalc</title>
 
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 
     <style>
-        /* Reset & Base Styles */
+        /* Reset dan Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Base Variables */
         :root {
-            --text-light: #ffffff;
-            --text-dark: #2c3e50;
-            --bg-light: #f5f6fa;
-            --bg-dark: #0f0f1a;
-            --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.15);
-            --shadow-dark: 0 8px 20px rgba(255, 255, 255, 0.05);
-            --transition: all 0.4s ease;
-            --glow: 0 0 10px rgba(255, 255, 255, 0.5);
+            --bg-dark: #000000;
+            --card-base: #1e1e33;
+            --text-light: #d9d9e6;
+            --accent: #7b5bff;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.7);
+            --glow: 0 0 12px rgba(123, 91, 255, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
         }
 
-        /* Body */
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
+            background: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-            transition: background 0.5s ease;
         }
 
         /* Navigasi */
         .zodiac-nav {
-            background: linear-gradient(135deg, #ff6b6b, #4a90e2);
+            background: linear-gradient(135deg, #000000, #2a2a4d);
             padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow-light);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            transform: translateZ(0);
-        }
-
-        .dark-mode .zodiac-nav {
-            background: linear-gradient(135deg, #e64c3c, #2a4066);
-            box-shadow: var(--shadow-dark);
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
 
         .nav-logo {
-            color: var(--text-light);
             font-size: 2.2rem;
             font-weight: 700;
+            color: var(--accent);
             text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-        }
-
-        .nav-logo:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
+            text-shadow: var(--glow);
         }
 
         .nav-back {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--accent);
             border-radius: 25px;
+            font-weight: 600;
             transition: var(--transition);
-            box-shadow: var(--glow);
         }
 
         .nav-back:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
+            background: var(--accent);
+            color: #fff;
+            box-shadow: var(--glow);
         }
 
         /* Header */
         .zodiac-header {
             text-align: center;
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #ff6b6b, #4a90e2);
-            color: var(--text-light);
+            background: linear-gradient(135deg, #000000, #2a2a4d);
             position: relative;
+            box-shadow: var(--shadow);
             overflow: hidden;
-            transform: translateZ(10px);
-            perspective: 1000px;
-        }
-
-        .dark-mode .zodiac-header {
-            background: linear-gradient(135deg, #e64c3c, #2a4066);
         }
 
         .zodiac-header h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            animation: fadeInDown 1s ease;
+            color: var(--accent);
+            text-shadow: var(--glow);
             position: relative;
             z-index: 1;
         }
 
         .zodiac-header p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            animation: fadeInUp 1s ease 0.5s forwards;
-            opacity: 0;
+            font-size: 1.3rem;
+            opacity: 0.85;
+            margin-top: 0.8rem;
             position: relative;
             z-index: 1;
         }
@@ -140,242 +113,266 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-            animation: rotateGlow 15s infinite linear;
-            transform: translateZ(-10px);
+            background: radial-gradient(circle, rgba(123, 91, 255, 0.15), transparent);
+            animation: subtleRotate 25s linear infinite;
         }
 
         /* Zodiac Container */
         .zodiac-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 4rem auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            perspective: 1000px;
         }
 
-        /* Zodiac Card General */
+        /* Zodiac Card Base */
         .zodiac-card {
             position: relative;
             padding: 2.5rem;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            cursor: pointer;
-            color: var(--text-light);
+            border-radius: var(--border-radius);
             text-align: center;
-            height: 280px;
+            text-decoration: none;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            transform-style: preserve-3d;
-            transform: rotateX(0deg) rotateY(0deg);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .dark-mode .zodiac-card {
-            box-shadow: var(--shadow-dark);
+            background: var(--card-base);
         }
 
         .zodiac-card:hover {
-            transform: rotateX(10deg) rotateY(10deg) translateZ(20px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .dark-mode .zodiac-card:hover {
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .zodiac-card h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-            animation: shimmer 3s infinite;
+            font-size: 2.5rem; /* Lebih besar dari 2rem */
+            font-weight: 700;
+            margin-top: 0.00rem; /* Lebih ke atas dengan margin atas */
+            margin-bottom: 1.5rem; /* Spasi lebih besar ke bawah */
+            text-transform: uppercase;
+            letter-spacing: 1.5px; /* Sedikit lebih lebar untuk kesan premium */
+            color: #ff00ff; /* Neon magenta default, akan diubah per zodiak */
+            text-shadow: var(--neon-glow);
         }
 
         .zodiac-card .symbol {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
-            position: relative;
-            z-index: 1;
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            text-shadow: var(--glow);
         }
 
-        .zodiac-card .dates {
-            font-size: 1.2rem;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .zodiac-card .element {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
+        .zodiac-card .dates-element {
             font-size: 1rem;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px);
-            transition: var(--transition);
+            opacity: 1; /* Opacity diubah menjadi 1 biar kontras */
+            margin-top: 0rem;
+            font-weight: 600;
+            color: #ffffff; /* Warna putih kontras default, akan diubah per zodiak */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Bayangan untuk kejelasan */
         }
 
-        .zodiac-card:hover .element {
-            background: rgba(255, 255, 255, 0.5);
+        /* Desain Card Mirip Template */
+        .zodiac-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Mengubah justify-content agar nama zodiak lebih ke atas */
         }
 
-        /* Tooltip */
-        .zodiac-card .tooltip {
+        .zodiac-card .logo-circle {
             position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--text-light);
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             z-index: 2;
+            top: 50%; /* Posisi logo tetap di tengah vertical */
+            transform: translateY(-50%);
         }
 
-        .zodiac-card:hover .tooltip {
-            opacity: 1;
+        .zodiac-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid;
+            border-radius: 50%;
+            border-color: transparent;
+            animation: borderSpin 4s linear infinite;
         }
+
+        .zodiac-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .zodiac-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--accent);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .zodiac-card .text-section {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            margin-top: 140px; /* Sesuaikan margin untuk space setelah logo */
+        }
+    
+
+        /* Warna Neon dan Background Sesuai Zodiak (Non-Gradasi) */
+        .aries-card {
+            background: #ff0000; /* Merah berani */
+        }
+        .aries-card .logo-circle::before { border-color: #ffffff; }
+        .aries-card .border-line { background: #ffffff; }
+        .aries-card h2 { color: #ffffff; } /* Neon magenta */
+        .aries-card .dates-element { content: '21 Maret - 19 April | 🔥'; color: #ffffff; } /* Putih kontras dengan merah */
+
+        .taurus-card {
+            background: #4a7045; /* Hijau stabil */
+        }
+        .taurus-card .logo-circle::before { border-color: #00ff00; }
+        .taurus-card .border-line { background: #00ff00; }
+        .taurus-card h2 { color: #00ff00; } /* Neon hijau */
+        .taurus-card .dates-element { content: '20 April - 20 Mei | 🌍'; color: #00ff00; } /* Putih kontras dengan hijau */
+
+        .gemini-card {
+            background: #ffd700; /* Kuning cerdas */
+        }
+        .gemini-card .logo-circle::before { border-color: #ffffff; }
+        .gemini-card .border-line { background: #ffffff; }
+        .gemini-card h2 { color: #ffffff; } /* Neon kuning */
+        .gemini-card .dates-element { content: '21 Mei - 20 Juni | 🌬️'; color: #ffffff; } /* Hitam kontras dengan kuning */
+
+        .cancer-card {
+            background: #4682b4; /* Biru emosional */
+        }
+        .cancer-card .logo-circle::before { border-color: #00ffff; }
+        .cancer-card .border-line { background: #00ffff; }
+        .cancer-card h2 { color: #00ffff; } /* Neon cyan */
+        .cancer-card .dates-element { content: '21 Juni - 22 Juli | 💧'; color: #00ffff; } /* Putih kontras dengan biru */
+
+        .leo-card {
+            background: #ff8c00; /* Oranye karismatik */
+        }
+        .leo-card .logo-circle::before { border-color: #ffcc66; }
+        .leo-card .border-line { background: #ffcc66; }
+        .leo-card h2 { color: #ffcc66; } /* Neon oranye */
+        .leo-card .dates-element { content: '23 Juli - 22 Agustus | 🔥'; color: #ffcc66; } /* Putih kontras dengan oranye */
+
+        .virgo-card {
+            background: #8b7d6b; /* Coklat analitis */
+        }
+        .virgo-card .logo-circle::before { border-color: #ffcc00; }
+        .virgo-card .border-line { background: #ffcc00; }
+        .virgo-card h2 { color: #ffcc00; } /* Neon kuning-oranye */
+        .virgo-card .dates-element { content: '23 Agustus - 22 September | 🌍'; color: #ffcc00; } /* Putih kontras dengan coklat */
+
+        .libra-card {
+            background: #ff00ff; /* Pink harmoni */
+        }
+        .libra-card .logo-circle::before { border-color: #ffffff; }
+        .libra-card .border-line { background: #ffffff; }
+        .libra-card h2 { color: #ffffff; } /* Neon magenta */
+        .libra-card .dates-element { content: '23 September - 22 Oktober | 🌬️'; color: #ffffff; } /* Putih kontras dengan pink */
+
+        .scorpio-card {
+            background: #800020; /* Merah tua misterius */
+        }
+        .scorpio-card .logo-circle::before { border-color: #ff0000; }
+        .scorpio-card .border-line { background: #ff0000; }
+        .scorpio-card h2 { color: #ff0000; } /* Neon merah */
+        .scorpio-card .dates-element { content: '23 Oktober - 21 November | 💧'; color: #ff0000; } /* Putih kontras dengan merah tua */
+
+        .sagittarius-card {
+            background: #9933ff; /* Ungu petualang */
+        }
+        .sagittarius-card .logo-circle::before { border-color: #ffffff; }
+        .sagittarius-card .border-line { background: #ffffff; }
+        .sagittarius-card h2 { color: #ffffff; } /* Neon ungu */
+        .sagittarius-card .dates-element { content: '22 November - 21 Desember | 🔥'; color: #ffffff; } /* Putih kontras dengan ungu */
+
+        .capricorn-card {
+            background: #2f4f4f; /* Abu-abu disiplin */
+        }
+        .capricorn-card .logo-circle::before { border-color: #00ffcc; }
+        .capricorn-card .border-line { background: #00ffcc; }
+        .capricorn-card h2 { color: #00ffcc; } /* Neon turquoise */
+        .capricorn-card .dates-element { content: '22 Desember - 19 Januari | 🌍'; color: #00ffcc; } /* Putih kontras dengan abu-abu */
+
+        .aquarius-card {
+            background: #00ced1; /* Turquoise inovatif */
+        }
+        .aquarius-card .logo-circle::before { border-color: #00ffff; }
+        .aquarius-card .border-line { background: #00ffff; }
+        .aquarius-card h2 { color: #00ffff; } /* Neon cyan */
+        .aquarius-card .dates-element { content: '20 Januari - 18 Februari | 🌬️'; color: #00ffff; } /* Hitam kontras dengan turquoise */
+
+        .pisces-card {
+            background: #00ccff; /* Biru muda intuitif */
+        }
+        .pisces-card .logo-circle::before { border-color: #ffffff; }
+        .pisces-card .border-line { background: #ffffff; }
+        .pisces-card h2 { color: #ffffff; } /* Neon biru */
+        .pisces-card .dates-element { content: '19 Februari - 20 Maret | 💧'; color: #ffffff; } /* Putih kontras dengan biru muda */
 
         /* Highlight Zodiak Hari Ini */
         .zodiac-card.today {
-            border: 3px solid #ffd700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            animation: glowToday 2s infinite;
-        }
-
-        /* Elemen Api */
-        .fire-card {
-            background: linear-gradient(135deg, #ff5733, #ff8c66);
-        }
-
-        .fire-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 2c-2 7-4 9-4 12a4 4 0 108 0c0-3-2-5-4-12z"%3E%3C/path%3E%3C/svg%3E') repeat;
-            opacity: 0.15;
-            animation: fireFlicker 2s infinite;
-            transform: translateZ(-5px);
-        }
-
-        /* Elemen Tanah */
-        .earth-card {
-            background: linear-gradient(135deg, #8b4513, #d2a679);
-        }
-
-        .earth-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M3 15h18M3 9h18M3 3h18"%3E%3C/path%3E%3C/svg%3E') repeat;
-            opacity: 0.15;
-            animation: dustShift 4s infinite;
-            transform: translateZ(-5px);
-        }
-
-        /* Elemen Udara */
-        .air-card {
-            background: linear-gradient(135deg, #87ceeb, #4a90e2);
-        }
-
-        .air-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M18 10h-6M18 6h-9M18 14h-3"%3E%3C/path%3E%3C/svg%3E') repeat;
-            opacity: 0.15;
-            animation: windFlow 3s infinite;
-            transform: translateZ(-5px);
-        }
-
-        /* Elemen Air */
-        .water-card {
-            background: linear-gradient(135deg, #1e90ff, #00ced1);
-        }
-
-        .water-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 2v20M4 10l8-8 8 8"%3E%3C/path%3E%3C/svg%3E') repeat;
-            opacity: 0.15;
-            animation: ripple 5s infinite;
-            transform: translateZ(-5px);
-        }
-
-        /* Canvas untuk Partikel */
-        .particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            transform: translateZ(0);
+            border: 2px solid var(--accent);
+            box-shadow: var(--glow), var(--shadow);
         }
 
         /* Footer */
         .zodiac-footer {
             text-align: center;
-            padding: 2.5rem;
-            background: linear-gradient(135deg, #ff6b6b, #4a90e2);
-            color: var(--text-light);
-            margin-top: 4rem;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e1e33, #2a2a4d);
             position: relative;
+            box-shadow: var(--shadow);
             overflow: hidden;
-        }
-
-        .dark-mode .zodiac-footer {
-            background: linear-gradient(135deg, #e64c3c, #2a4066);
         }
 
         .zodiac-footer p {
             font-size: 1.2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            margin-bottom: 1rem;
         }
 
         .zodiac-footer a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--accent);
             text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 25px;
             transition: var(--transition);
         }
 
         .zodiac-footer a:hover {
-            color: var(--text-light);
-            transform: translateY(-2px);
+            background: var(--accent);
+            color: #fff;
+            box-shadow: var(--glow);
         }
 
         .zodiac-footer::before {
@@ -385,119 +382,86 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            animation: rotateGlow 20s infinite linear;
+            background: radial-gradient(circle, rgba(123, 91, 255, 0.15), transparent);
+            animation: subtleRotate 30s linear infinite;
         }
 
-        /* Animasi */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes rotateGlow {
+        /* Animasi Ringan */
+        @keyframes subtleRotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes fireFlicker {
-            0% { opacity: 0.15; transform: translateZ(-5px); }
-            50% { opacity: 0.3; transform: translateZ(0); }
-            100% { opacity: 0.15; transform: translateZ(-5px); }
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        @keyframes dustShift {
-            0% { transform: translateY(0) translateZ(-5px); }
-            50% { transform: translateY(15px) translateZ(0); }
-            100% { transform: translateY(0) translateZ(-5px); }
-        }
-
-        @keyframes windFlow {
-            0% { transform: translateX(0) translateZ(-5px); }
-            50% { transform: translateX(20px) translateZ(0); }
-            100% { transform: translateX(0) translateZ(-5px); }
-        }
-
-        @keyframes ripple {
-            0% { transform: scale(1) translateZ(-5px); opacity: 0.15; }
-            50% { transform: scale(1.1) translateZ(0); opacity: 0.3; }
-            100% { transform: scale(1) translateZ(-5px); opacity: 0.15; }
-        }
-
-        @keyframes shimmer {
-            0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-            50% { text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5); }
-            100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-        }
-
-        @keyframes glowToday {
-            0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
-        }
-
-        @keyframes staggerIn {
-            from { opacity: 0; transform: translateY(50px) rotateX(-20deg); }
-            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
-        }
-
-        .zodiac-card {
-            opacity: 0;
-            animation: staggerIn 0.8s ease forwards;
-        }
-
-        .zodiac-card:nth-child(1) { animation-delay: 0.1s; }
-        .zodiac-card:nth-child(2) { animation-delay: 0.2s; }
-        .zodiac-card:nth-child(3) { animation-delay: 0.3s; }
-        .zodiac-card:nth-child(4) { animation-delay: 0.4s; }
-        .zodiac-card:nth-child(5) { animation-delay: 0.5s; }
-        .zodiac-card:nth-child(6) { animation-delay: 0.6s; }
-        .zodiac-card:nth-child(7) { animation-delay: 0.7s; }
-        .zodiac-card:nth-child(8) { animation-delay: 0.8s; }
-        .zodiac-card:nth-child(9) { animation-delay: 0.9s; }
-        .zodiac-card:nth-child(10) { animation-delay: 1s; }
-        .zodiac-card:nth-child(11) { animation-delay: 1.1s; }
-        .zodiac-card:nth-child(12) { animation-delay: 1.2s; }
-
-        /* Responsif */
-        @media (max-width: 1024px) {
+        /* Responsiv */
+        @media (max-width: 1200px) {
             .zodiac-container {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2rem;
+            }
+
+            .zodiac-card .logo-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .zodiac-card .logo-symbol {
+                font-size: 2.5rem;
+            }
+
+            .zodiac-card .text-section {
+                margin-top: 120px;
+            }
+
+            .zodiac-card h2 {
+                font-size: 2.2rem; /* Lebih besar pada ukuran layar lebih kecil */
+            }
+
+            .zodiac-card .dates-element {
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 768px) {
             .zodiac-header h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
 
             .zodiac-header p {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
 
-            .zodiac-container {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
+            .zodiac-card {
+                height: 280px;
+                padding: 2rem;
             }
 
             .zodiac-card h2 {
-                font-size: 2rem;
+                font-size: 2rem; /* Lebih besar pada ukuran layar lebih kecil */
             }
 
             .zodiac-card .symbol {
-                font-size: 3.5rem;
+                font-size: 3rem;
+            }
+
+            .zodiac-card .dates-element {
+                font-size: 0.9rem;
+            }
+
+            .zodiac-card .logo-circle {
+                width: 90px;
+                height: 90px;
+            }
+
+            .zodiac-card .logo-symbol {
+                font-size: 2.2rem;
+            }
+
+            .zodiac-card .text-section {
+                margin-top: 110px;
             }
         }
 
@@ -513,11 +477,7 @@
             }
 
             .zodiac-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .zodiac-header p {
-                font-size: 1.1rem;
+                font-size: 2.2rem;
             }
 
             .zodiac-container {
@@ -525,232 +485,213 @@
             }
 
             .zodiac-card {
-                height: 220px;
+                height: 260px;
+                padding: 1.5rem;
             }
 
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
+            .zodiac-card h2 {
+                font-size: 1.8rem; /* Lebih besar pada ukuran layar lebih kecil */
             }
 
-            .theme-toggle i {
-                font-size: 1.2rem;
+            .zodiac-card .symbol {
+                font-size: 2.5rem;
+            }
+
+            .zodiac-card .dates-element {
+                font-size: 0.85rem;
+            }
+
+            .zodiac-card .logo-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .zodiac-card .logo-symbol {
+                font-size: 2rem;
+            }
+
+            .zodiac-card .text-section {
+                margin-top: 100px;
+            }
+
+            .zodiac-footer {
+                padding: 2rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Partikel Elemen -->
-    <canvas class="particle-canvas"></canvas>
-
     <!-- Navigasi -->
     <nav class="zodiac-nav">
         <a href="/" class="nav-logo">AgeCalc</a>
-        <a href="/" class="nav-back">Kembali ke Kalkulator</a>
+        <a href="/" class="nav-back">Kembali</a>
     </nav>
 
     <!-- Header -->
     <header class="zodiac-header">
-        <h1>Jelajahi Zodiak Anda</h1>
+        <h1>Jelajahi Zodiak</h1>
+        <p>Pilih Zodiak yang ingin anda ketahui</p>
     </header>
 
     <!-- Daftar Zodiak -->
     <section class="zodiac-container">
-        <!-- Aries -->
-        <a href="/pages/aries.html" class="zodiac-card fire-card" data-element="fire" data-sound="fire">
-            <div class="tooltip">Pemimpin berani penuh energi!</div>
-            <h2>Aries</h2>
-            <div class="symbol">♈</div>
-            <p class="dates">21 Maret - 19 April</p>
-            <span class="element">Api</span>
+        <a href="/pages/zodiac/aries" class="zodiac-card aries-card">
+            <div class="card-content">
+                <h2>Aries</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♈</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">21 Maret - 19 April | 🔥</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Taurus -->
-        <a href="/pages/zodiac/taurus" class="zodiac-card earth-card" data-element="earth" data-sound="earth">
-            <div class="tooltip">Setia dan penuh ketahanan!</div>
-            <h2>Taurus</h2>
-            <div class="symbol">♉</div>
-            <p class="dates">20 April - 20 Mei</p>
-            <span class="element">Tanah</span>
+        <a href="/pages/zodiac/taurus" class="zodiac-card taurus-card">
+            <div class="card-content">
+                <h2>Taurus</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♉</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">20 April - 20 Mei | 🌍</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Gemini -->
-        <a href="/pages/zodiac/gemini" class="zodiac-card air-card" data-element="air" data-sound="air">
-            <div class="tooltip">Cerdas dan fleksibel!</div>
-            <h2>Gemini</h2>
-            <div class="symbol">♊</div>
-            <p class="dates">21 Mei - 20 Juni</p>
-            <span class="element">Udara</span>
+        <a href="/pages/zodiac/gemini" class="zodiac-card gemini-card">
+            <div class="card-content">
+                <h2>Gemini</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♊</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">21 Mei - 20 Juni | 🌬️</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Cancer -->
-        <a href="/pages/zodiac/cancer" class="zodiac-card water-card" data-element="water" data-sound="water">
-            <div class="tooltip">Emosional dan intuitif!</div>
-            <h2>Cancer</h2>
-            <div class="symbol">♋</div>
-            <p class="dates">21 Juni - 22 Juli</p>
-            <span class="element">Air</span>
+        <a href="/pages/zodiac/cancer" class="zodiac-card cancer-card">
+            <div class="card-content">
+                <h2>Cancer</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♋</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">21 Juni - 22 Juli | 💧</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Leo -->
-        <a href="/pages/zodiac/leo" class="zodiac-card fire-card" data-element="fire" data-sound="fire">
-            <div class="tooltip">Karismatik dan penuh gairah!</div>
-            <h2>Leo</h2>
-            <div class="symbol">♌</div>
-            <p class="dates">23 Juli - 22 Agustus</p>
-            <span class="element">Api</span>
+        <a href="/pages/zodiac/leo" class="zodiac-card leo-card">
+            <div class="card-content">
+                <h2>Leo</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♌</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">23 Juli - 22 Agustus | 🔥</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Virgo -->
-        <a href="/pages/zodiac/virgo" class="zodiac-card earth-card" data-element="earth" data-sound="earth">
-            <div class="tooltip">Analitis dan perfeksionis!</div>
-            <h2>Virgo</h2>
-            <div class="symbol">♍</div>
-            <p class="dates">23 Agustus - 22 September</p>
-            <span class="element">Tanah</span>
+        <a href="/pages/zodiac/virgo" class="zodiac-card virgo-card">
+            <div class="card-content">
+                <h2>Virgo</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♍</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">23 Agustus - 22 September | 🌍</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Libra -->
-        <a href="/pages/zodiac/libra" class="zodiac-card air-card" data-element="air" data-sound="air">
-            <div class="tooltip">Diplomatis dan seimbang!</div>
-            <h2>Libra</h2>
-            <div class="symbol">♎</div>
-            <p class="dates">23 September - 22 Oktober</p>
-            <span class="element">Udara</span>
+        <a href="/pages/zodiac/libra" class="zodiac-card libra-card">
+            <div class="card-content">
+                <h2>Libra</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♎</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">23 September - 22 Oktober | 🌬️</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Scorpio -->
-        <a href="/pages/zodiac/scorpio" class="zodiac-card water-card" data-element="water" data-sound="water">
-            <div class="tooltip">Misterius dan penuh gairah!</div>
-            <h2>Scorpio</h2>
-            <div class="symbol">♏</div>
-            <p class="dates">23 Oktober - 21 November</p>
-            <span class="element">Air</span>
+        <a href="/pages/zodiac/scorpio" class="zodiac-card scorpio-card">
+            <div class="card-content">
+                <h2>Scorpio</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♏</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">23 Oktober - 21 November | 💧</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Sagittarius -->
-        <a href="/pages/zodiac/sagittarius" class="zodiac-card fire-card" data-element="fire" data-sound="fire">
-            <div class="tooltip">Petualang dan optimis!</div>
-            <h2>Sagittarius</h2>
-            <div class="symbol">♐</div>
-            <p class="dates">22 November - 21 Desember</p>
-            <span class="element">Api</span>
+        <a href="/pages/zodiac/sagittarius" class="zodiac-card sagittarius-card">
+            <div class="card-content">
+                <h2>Sagittarius</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♐</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">22 November - 21 Desember | 🔥</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Capricorn -->
-        <a href="/pages/zodiac/capricorn" class="zodiac-card earth-card" data-element="earth" data-sound="earth">
-            <div class="tooltip">Disiplin dan ambisius!</div>
-            <h2>Capricorn</h2>
-            <div class="symbol">♑</div>
-            <p class="dates">22 Desember - 19 Januari</p>
-            <span class="element">Tanah</span>
+        <a href="/pages/zodiac/capricorn" class="zodiac-card capricorn-card">
+            <div class="card-content">
+                <h2>Capricorn</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♑</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">22 Desember - 19 Januari | 🌍</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Aquarius -->
-        <a href="/pages/zodiac/aquarius" class="zodiac-card air-card" data-element="air" data-sound="air">
-            <div class="tooltip">Inovatif dan independen!</div>
-            <h2>Aquarius</h2>
-            <div class="symbol">♒</div>
-            <p class="dates">20 Januari - 18 Februari</p>
-            <span class="element">Udara</span>
+        <a href="/pages/zodiac/aquarius" class="zodiac-card aquarius-card">
+            <div class="card-content">
+                <h2>Aquarius</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♒</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">20 Januari - 18 Februari | 🌬️</span>
+                </div>
+            </div>
         </a>
-
-        <!-- Pisces -->
-        <a href="/pages/zodiac/pisces" class="zodiac-card water-card" data-element="water" data-sound="water">
-            <div class="tooltip">Intuitif dan artistik!</div>
-            <h2>Pisces</h2>
-            <div class="symbol">♓</div>
-            <p class="dates">19 Februari - 20 Maret</p>
-            <span class="element">Air</span>
+        <a href="/pages/zodiac/pisces" class="zodiac-card pisces-card">
+            <div class="card-content">
+                <h2>Pisces</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♓</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">19 Februari - 20 Maret | 💧</span>
+                </div>
+            </div>
         </a>
     </section>
 
     <!-- Footer -->
     <footer class="zodiac-footer">
-        <p>© 2025 All right reserved.</p>
+        <p>© 2025 AgeCalc - All Rights Reserved</p>
         <a href="/pages/about">Tentang Kami</a>
     </footer>
 
     <!-- JavaScript -->
     <script>
-
-
-        // Partikel Elemen
-        const canvas = document.querySelector('.particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 150;
-
-        function createParticle(element, x, y) {
-            let config = {
-                x: x || Math.random() * canvas.width,
-                y: y || Math.random() * canvas.height,
-                size: Math.random() * 5 + 3,
-                speed: Math.random() * 2 + 1,
-                depth: Math.random() * 20 - 10
-            };
-
-            switch (element) {
-                case 'fire':
-                    config.color = `hsl(${Math.random() * 30 + 10}, 100%, 50%)`;
-                    config.y = canvas.height + Math.random() * 50;
-                    config.update = function() {
-                        this.y -= this.speed;
-                        this.x += Math.sin(this.y * 0.02) * 0.5;
-                        if (this.y < -this.size) this.y = canvas.height + this.size;
-                        this.transform = `translateZ(${this.depth}px)`;
-                    };
-                    break;
-                case 'earth':
-                    config.color = `hsl(${Math.random() * 30 + 20}, 50%, 50%)`;
-                    config.update = function() {
-                        this.y += this.speed * 0.5;
-                        this.x += Math.random() * 0.2 - 0.1;
-                        if (this.y > canvas.height + this.size) this.y = -this.size;
-                        this.transform = `translateZ(${this.depth}px)`;
-                    };
-                    break;
-                case 'air':
-                    config.color = `hsl(${Math.random() * 30 + 190}, 70%, 70%)`;
-                    config.update = function() {
-                        this.x += this.speed;
-                        this.y += Math.sin(this.x * 0.02) * 0.5;
-                        if (this.x > canvas.width + this.size) this.x = -this.size;
-                        this.transform = `translateZ(${this.depth}px)`;
-                    };
-                    break;
-                case 'water':
-                    config.color = `hsl(${Math.random() * 30 + 200}, 80%, 60%)`;
-                    config.update = function() {
-                        this.y += Math.sin(this.x * 0.01) * 0.5;
-                        this.x += this.speed * 0.5;
-                        if (this.x > canvas.width + this.size) {
-                            this.x = -this.size;
-                            this.y = Math.random() * canvas.height;
-                        }
-                        this.transform = `translateZ(${this.depth}px)`;
-                    };
-                    break;
-            }
-            return config;
-        }
-
-        const cards = document.querySelectorAll('.zodiac-card');
-        cards.forEach(card => {
-            const element = card.getAttribute('data-element');
-            for (let i = 0; i < particleCount / 12; i++) {
-                particles.push(createParticle(element));
-            }
-        });
-
         // Highlight Zodiak Hari Ini
         function highlightTodayZodiac() {
-            const today = new Date();
+            const today = new Date('2025-02-22'); // Sesuaikan dengan tanggal saat ini
             const month = today.getMonth() + 1;
             const day = today.getDate();
 
@@ -781,16 +722,10 @@
             });
 
             if (currentZodiac) {
-                const card = document.querySelector(`.zodiac-card h2:contains('${currentZodiac.name}')`).parentElement;
+                const card = document.querySelector(`.zodiac-card h2:contains('${currentZodiac.name}')`).parentElement.parentElement;
                 card.classList.add('today');
             }
         }
-
-        // Resize Canvas
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
 
         // Inisialisasi
         document.addEventListener('DOMContentLoaded', () => {
