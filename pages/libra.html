@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Analisis mendalam tentang zodiak Virgo: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
-    <meta name="keywords" content="zodiak virgo, astrologi, elemen tanah, kepribadian virgo, wawasan eksklusif">
+    <meta name="description" content="Analisis mendalam tentang zodiak Libra: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="zodiak libra, astrologi, elemen udara, kepribadian libra, wawasan eksklusif">
     <meta name="author" content="Your Name">
-    <meta property="og:title" content="Zodiak Virgo - AgeCalc">
-    <meta property="og:description" content="Wawasan eksklusif tentang zodiak Virgo: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
-    <meta property="og:image" content="/images/virgo-symbol.png">
-    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/zodiac/virgo">
-    <title>Zodiak Virgo - AgeCalc</title>
+    <meta property="og:title" content="Zodiak Libra - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang zodiak Libra: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/libra-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/zodiac/libra">
+    <title>Zodiak Libra - AgeCalc</title>
     
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -29,12 +29,12 @@
             --bg-dark: #0d0d0d;
             --card-base: #1a1a1a;
             --text-light: #d9d9e6;
-            --virgo-primary: #8b7d6b; /* Coklat analitis */
-            --virgo-secondary: #ffcc00; /* Kuning neon */
-            --virgo-accent: #665533; /* Coklat tua */
+            --libra-primary: #ff00ff; /* Pink harmoni */
+            --libra-secondary: #ffffff; /* Putih kontras */
+            --libra-accent: #cc00cc; /* Pink tua */
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
-            --glow: 0 0 12px rgba(255, 204, 0, 0.4);
-            --neon-glow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.5);
+            --glow: 0 0 12px rgba(255, 0, 255, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.5);
             --transition: all 0.3s ease;
             --border-radius: 15px;
         }
@@ -62,7 +62,7 @@
         .nav-logo {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             text-decoration: none;
             text-shadow: var(--glow);
         }
@@ -71,15 +71,15 @@
             color: var(--text-light);
             text-decoration: none;
             padding: 0.7rem 1.8rem;
-            border: 2px solid var(--virgo-primary);
+            border: 2px solid var(--libra-primary);
             border-radius: 25px;
             font-weight: 600;
             transition: var(--transition);
         }
 
         .nav-back:hover {
-            background: var(--virgo-primary);
-            color: #fff;
+            background: var(--libra-primary);
+            color: #000;
             box-shadow: var(--glow);
         }
 
@@ -89,7 +89,7 @@
             padding: 0 1rem;
         }
 
-        .virgo-card {
+        .libra-card {
             position: relative;
             padding: 2.5rem;
             border-radius: var(--border-radius);
@@ -103,10 +103,10 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            background: var(--virgo-primary);
+            background: var(--libra-primary);
         }
 
-        .virgo-card .card-content {
+        .libra-card .card-content {
             position: relative;
             width: 100%;
             height: 100%;
@@ -116,21 +116,21 @@
             justify-content: flex-start;
         }
 
-        .virgo-card h1 {
+        .libra-card h1 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--virgo-secondary);
+            color: var(--libra-secondary);
             text-shadow: var(--neon-glow);
         }
 
-        .virgo-card .logo-circle {
+        .libra-card .logo-circle {
             position: absolute;
             width: 120px;
             height: 120px;
-            background: #fff;
+            background: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -141,42 +141,42 @@
             transform: translateY(-50%);
         }
 
-        .virgo-card .logo-circle::before {
+        .libra-card .logo-circle::before {
             content: '';
             position: absolute;
             width: 110px;
             height: 110px;
-            border: 5px solid var(--virgo-secondary);
+            border: 5px solid var(--libra-secondary);
             border-radius: 50%;
             animation: borderSpin 4s linear infinite;
         }
 
-        .virgo-card .logo-symbol {
+        .libra-card .logo-symbol {
             font-size: 3rem;
-            color: var(--bg-dark);
+            color: var(--libra-primary);
         }
 
-        .virgo-card .border-line {
+        .libra-card .border-line {
             position: absolute;
             width: 100%;
             height: 10px;
-            background: var(--virgo-secondary);
+            background: var(--libra-secondary);
             top: 50%;
             transform: translateY(-50%);
             border-radius: 5px;
             z-index: 1;
         }
 
-        .virgo-card .text-section {
+        .libra-card .text-section {
             position: relative;
             z-index: 3;
             margin-top: 140px;
         }
 
-        .virgo-card .dates-element {
+        .libra-card .dates-element {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--virgo-secondary);
+            color: var(--libra-secondary);
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
@@ -197,11 +197,11 @@
 
         .zodiac-info:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(255, 204, 0, 0.2);
+            box-shadow: 0 6px 18px rgba(255, 0, 255, 0.2);
         }
 
         .zodiac-info h2 {
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             font-size: 2rem;
             margin-bottom: 1rem;
             position: relative;
@@ -214,7 +214,7 @@
             left: 0;
             width: 50px;
             height: 4px;
-            background: var(--virgo-accent);
+            background: var(--libra-accent);
         }
 
         .zodiac-info p {
@@ -232,10 +232,10 @@
         }
 
         .zodiac-info ul li::before {
-            content: '🌍';
+            content: '🌬️';
             position: absolute;
             left: -1.5rem;
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             font-size: 1.2rem;
         }
 
@@ -250,7 +250,7 @@
         }
 
         .compatibility-calculator h2 {
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             font-size: 2rem;
             margin-bottom: 1.5rem;
         }
@@ -261,7 +261,7 @@
             margin: 1rem 0;
             padding: 1rem;
             background: var(--bg-dark);
-            border: 1px solid var(--virgo-primary);
+            border: 1px solid var(--libra-primary);
             border-radius: var(--border-radius);
             box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
         }
@@ -286,14 +286,14 @@
 
         .zodiac-option:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(255, 204, 0, 0.2);
+            box-shadow: 0 6px 18px rgba(255, 0, 255, 0.2);
         }
 
         .zodiac-option .logo-circle {
             position: absolute;
             width: 60px;
             height: 60px;
-            background: var(--virgo-secondary);
+            background: var(--libra-secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -313,7 +313,7 @@
             position: absolute;
             width: 100%;
             height: 5px;
-            background: var(--virgo-secondary);
+            background: var(--libra-secondary);
             top: 50%;
             transform: translateY(-50%);
             border-radius: 2px;
@@ -330,7 +330,7 @@
         .zodiac-option h3 {
             font-size: 1.2rem;
             font-weight: 600;
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             text-transform: uppercase;
         }
 
@@ -341,13 +341,13 @@
         }
 
         .zodiac-option.selected {
-            border: 2px solid var(--virgo-primary);
+            border: 2px solid var(--libra-primary);
             background: var(--bg-dark);
         }
 
         .compatibility-calculator button {
             padding: 0.8rem 1.5rem;
-            background: var(--virgo-primary);
+            background: var(--libra-primary);
             border: none;
             border-radius: 5px;
             color: var(--text-light);
@@ -357,7 +357,7 @@
         }
 
         .compatibility-calculator button:hover {
-            background: var(--virgo-accent);
+            background: var(--libra-accent);
             box-shadow: var(--glow);
         }
 
@@ -365,7 +365,7 @@
             margin-top: 1rem;
             padding: 1rem;
             background: var(--card-base);
-            border: 1px solid var(--virgo-primary);
+            border: 1px solid var(--libra-primary);
             border-radius: 5px;
             color: var(--text-light);
             display: none;
@@ -382,14 +382,14 @@
         }
 
         .zodiac-footer a {
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             text-decoration: none;
             margin-left: 1rem;
             font-weight: 500;
         }
 
         .zodiac-footer a:hover {
-            color: var(--virgo-accent);
+            color: var(--libra-accent);
         }
 
         /* Loading Overlay */
@@ -408,7 +408,7 @@
         }
 
         .loading-overlay span {
-            color: var(--virgo-primary);
+            color: var(--libra-primary);
             font-size: 1.5rem;
             font-weight: 600;
             text-shadow: var(--neon-glow);
@@ -441,14 +441,14 @@
         }
 
         @media (max-width: 768px) {
-            .virgo-card {
+            .libra-card {
                 height: 280px;
                 padding: 2rem;
             }
-            .virgo-card h1 { font-size: 2rem; }
-            .virgo-card .logo-circle { width: 100px; height: 100px; }
-            .virgo-card .logo-symbol { font-size: 2.5rem; }
-            .virgo-card .text-section { margin-top: 120px; }
+            .libra-card h1 { font-size: 2rem; }
+            .libra-card .logo-circle { width: 100px; height: 100px; }
+            .libra-card .logo-symbol { font-size: 2.5rem; }
+            .libra-card .text-section { margin-top: 120px; }
 
             .zodiac-option { padding: 1rem; }
             .zodiac-option .logo-circle { width: 50px; height: 50px; }
@@ -459,11 +459,11 @@
 
         @media (max-width: 576px) {
             .zodiac-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
-            .virgo-card { height: 260px; padding: 1.5rem; }
-            .virgo-card h1 { font-size: 1.8rem; }
-            .virgo-card .logo-circle { width: 80px; height: 80px; }
-            .virgo-card .logo-symbol { font-size: 2rem; }
-            .virgo-card .text-section { margin-top: 100px; }
+            .libra-card { height: 260px; padding: 1.5rem; }
+            .libra-card h1 { font-size: 1.8rem; }
+            .libra-card .logo-circle { width: 80px; height: 80px; }
+            .libra-card .logo-symbol { font-size: 2rem; }
+            .libra-card .text-section { margin-top: 100px; }
             .zodiac-info h2 { font-size: 1.6rem; }
 
             .zodiac-option { padding: 0.8rem; }
@@ -475,22 +475,22 @@
     </style>
 </head>
 <body>
-    <div class="loading-overlay"><span>Virgo Power Loading...</span></div>
+    <div class="loading-overlay"><span>Libra Power Loading...</span></div>
     <nav class="zodiac-nav">
         <a href="/" class="nav-logo">AgeCalc</a>
         <a href="/" class="nav-back">Kembali</a>
     </nav>
 
     <header class="zodiac-header">
-        <div class="virgo-card">
+        <div class="libra-card">
             <div class="card-content">
-                <h1>Virgo</h1>
+                <h1>Libra</h1>
                 <div class="logo-circle">
-                    <div class="logo-symbol">♍</div>
+                    <div class="logo-symbol">♎</div>
                 </div>
                 <div class="border-line"></div>
                 <div class="text-section">
-                    <span class="dates-element">23 Agustus - 22 September | 🌍</span>
+                    <span class="dates-element">23 September - 22 Oktober | 🌬️</span>
                 </div>
             </div>
         </div>
@@ -498,36 +498,36 @@
 
     <main class="zodiac-content">
         <section class="zodiac-info fade-in">
-            <h2>Elemen: Tanah</h2>
-            <p>Virgo, zodiak keenam dalam astrologi Barat, diatur oleh elemen tanah yang melambangkan analisis, ketelitian, dan praktisitas. Mereka dikenal sebagai pemikir yang rapi dan cermat.</p>
+            <h2>Elemen: Udara</h2>
+            <p>Libra, zodiak ketujuh dalam astrologi Barat, diatur oleh elemen udara yang melambangkan harmoni, keseimbangan, dan kecerdasan sosial. Mereka dikenal sebagai penengah yang elegan dan adil.</p>
         </section>
 
         <section class="zodiac-info fade-in">
             <h2>Kepribadian</h2>
-            <p>Virgo memiliki sifat analitis, detail-oriented, dan praktis. Mereka cermat, suka organisasi, dan sering membantu orang lain, tapi kadang terlihat terlalu kritis atau perfeksionis.</p>
+            <p>Libra memiliki sifat diplomatis, ramah, dan suka keseimbangan. Mereka estetis, peduli pada hubungan, tapi kadang sulit membuat keputusan atau terlalu menghindari konflik.</p>
         </section>
 
         <section class="zodiac-info fade-in">
             <h2>Kekuatan Strategis</h2>
             <ul>
-                <li><strong>Analitis:</strong> Mampu menganalisis masalah dengan teliti dan akurat.</li>
-                <li><strong>Organisasi:</strong> Rapi dan efisien dalam mengatur tugas.</li>
-                <li><strong>Kepraktisan:</strong> Fokus pada solusi yang realistis dan efektif.</li>
+                <li><strong>Diplomasi:</strong> Mampu menyelesaikan konflik dengan adil dan harmonis.</li>
+                <li><strong>Keseimbangan:</strong> Menjaga stabilitas dalam tim atau hubungan.</li>
+                <li><strong>Estetika:</strong> Memiliki selera artistik yang kuat dan kreatif.</li>
             </ul>
         </section>
 
         <section class="zodiac-info fade-in">
             <h2>Risiko Tersembunyi</h2>
             <ul>
-                <li><strong>Perfeksionis:</strong> Terlalu fokus pada detail bisa lambatkan proses.</li>
-                <li><strong>Kritis Berlebihan:</strong> Kadang terlihat judes atau terlalu kritis pada orang lain.</li>
-                <li><strong>Stres Mudah:</strong> Rentan stres karena standar tinggi sendiri.</li>
+                <li><strong>Sulit Putuskan:</strong> Terlalu lama mempertimbangkan pilihan.</li>
+                <li><strong>Menghindari Konflik:</strong> Kadang menghindari masalah demi menjaga kedamaian.</li>
+                <li><strong>Materialistis:</strong> Terlalu fokus pada penampilan atau kenyamanan.</li>
             </ul>
         </section>
 
         <section class="zodiac-info fade-in compatibility-calculator">
             <h2>Kecocokan Hubungan</h2>
-            <p>Pilih zodiak untuk melihat kecocokan dengan Virgo.</p>
+            <p>Pilih zodiak untuk melihat kecocokan dengan Libra.</p>
             <div class="zodiac-options" id="zodiacOptions">
                 <div class="zodiac-option" data-zodiac="Aries">
                     <div class="card-content">
@@ -680,12 +680,12 @@
 
         <section class="zodiac-info fade-in">
             <h2>Karier & Keuangan</h2>
-            <p>Virgo unggul di bidang yang membutuhkan ketelitian, seperti penelitian, akuntansi, atau kesehatan. Dalam keuangan, mereka hemat dan terorganisir, tapi perlu hati-hati dengan perfeksionisme.</p>
+            <p>Libra unggul di bidang yang membutuhkan diplomasi, seperti hukum, seni, atau hubungan masyarakat. Dalam keuangan, mereka cenderung menikmati kenyamanan, jadi perlu disiplin dengan anggaran.</p>
         </section>
 
         <section class="zodiac-info fade-in">
             <h2>Dinamika Cinta</h2>
-            <p>Virgo membawa kesetiaan dan perhatian dalam hubungan. Mereka mencari pasangan yang menghargai ketelitian mereka, meskipun kadang terlihat terlalu kritis atau tertutup emosional.</p>
+            <p>Libra membawa harmoni dan romansa dalam hubungan. Mereka mencari pasangan yang menghargai keseimbangan dan estetika, meskipun kadang sulit mengambil keputusan atau menghindari konflik.</p>
         </section>
     </main>
 
@@ -695,20 +695,20 @@
     </footer>
 
     <script>
-        // Data kecocokan zodiak Virgo dengan persentase dan emoji
+        // Data kecocokan zodiak Libra dengan persentase dan emoji
         const compatibilityData = {
-            "Aries": { percent: 50, text: "Kurang cocok - Impulsivitas Aries bentrok dengan ketelitian Virgo 😢" },
-            "Taurus": { percent: 85, text: "Sangat cocok - Stabilitas Taurus harmonis dengan praktis Virgo 😊" },
-            "Gemini": { percent: 65, text: "Baik - Ketelitian Virgo komplementer dengan ide Gemini 😊" },
-            "Cancer": { percent: 75, text: "Cocok - Ketelitian Virgo stabilkan emosi Cancer 😊" },
-            "Leo": { percent: 55, text: "Tantangan - Ketelitian Virgo bentrok dengan ego Leo 😕" },
-            "Virgo": { percent: 90, text: "Sangat cocok - Analisis saling mendukung 😊" },
-            "Libra": { percent: 70, text: "Baik - Keseimbangan Libra melengkapi ketelitian Virgo 😊" },
-            "Scorpio": { percent: 65, text: "Baik - Intensitas Scorpio cocok dengan analisis Virgo 😊" },
-            "Sagittarius": { percent: 50, text: "Kurang cocok - Spontanitas Sagittarius bentrok dengan struktur Virgo 😢" },
-            "Capricorn": { percent: 80, text: "Cocok - Ambisi Capricorn harmonis dengan ketelitian Virgo 😊" },
-            "Aquarius": { percent: 60, text: "Netral - Inovasi Aquarius kontras dengan praktis Virgo 😐" },
-            "Pisces": { percent: 70, text: "Baik - Sensitivitas Pisces melengkapi analisis Virgo 😊" }
+            "Aries": { percent: 70, text: "Baik - Keseimbangan Libra cocok dengan semangat Aries 😊" },
+            "Taurus": { percent: 70, text: "Baik - Ketenangan Taurus harmonis dengan Libra 😊" },
+            "Gemini": { percent: 85, text: "Sangat cocok - Kecerdasan Gemini melengkapi Libra 😊" },
+            "Cancer": { percent: 70, text: "Baik - Keseimbangan Libra harmonis dengan Cancer 😊" },
+            "Leo": { percent: 75, text: "Cocok - Karisma Leo melengkapi diplomasi Libra 😊" },
+            "Virgo": { percent: 70, text: "Baik - Ketelitian Virgo melengkapi keseimbangan Libra 😊" },
+            "Libra": { percent: 90, text: "Sangat cocok - Harmoni saling mendukung 😊" },
+            "Scorpio": { percent: 65, text: "Baik - Intensitas Scorpio cocok dengan diplomasi Libra 😊" },
+            "Sagittarius": { percent: 60, text: "Netral - Petualangan Sagittarius kontras dengan keseimbangan Libra 😐" },
+            "Capricorn": { percent: 55, text: "Tantangan - Struktur Capricorn bentrok dengan fleksibilitas Libra 😕" },
+            "Aquarius": { percent: 80, text: "Cocok - Inovasi Aquarius harmonis dengan Libra 😊" },
+            "Pisces": { percent: 75, text: "Cocok - Sensitivitas Pisces melengkapi harmoni Libra 😊" }
         };
 
         let selectedZodiac = null;
@@ -747,34 +747,34 @@
         });
 
         // Tambahin audio
-        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3'); // Ganti URL lagu sesuai kebutuhan, pake lagu klasik instrumental buat Virgo
+        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3'); // Ganti URL lagu sesuai kebutuhan, pake lagu jazz lembut buat Libra
         audio.loop = true;
         audio.volume = 0.5; // Volume rendah biar nggak ganggu
 
-        // Ambil elemen .virgo-card
-        const virgoCard = document.querySelector('.virgo-card');
+        // Ambil elemen .libra-card
+        const libraCard = document.querySelector('.libra-card');
         let isPlaying = false;
 
         // Fungsi buat toggle play/pause
         function toggleAudio() {
             if (isPlaying) {
                 audio.pause();
-                virgoCard.style.background = 'var(--virgo-primary)';
-                virgoCard.querySelector('h1').textContent = 'Virgo (Paused)';
+                libraCard.style.background = 'var(--libra-primary)';
+                libraCard.querySelector('h1').textContent = 'Libra (Paused)';
             } else {
                 audio.play();
-                virgoCard.style.background = 'linear-gradient(135deg, #8b7d6b, #665533)';
-                virgoCard.querySelector('h1').textContent = 'Virgo (Playing)';
+                libraCard.style.background = 'linear-gradient(135deg, #ff00ff, #cc00cc)';
+                libraCard.querySelector('h1').textContent = 'Libra (Playing)';
             }
             isPlaying = !isPlaying;
         }
 
-        // Tambahin event listener ke .virgo-card
-        virgoCard.addEventListener('click', toggleAudio);
+        // Tambahin event listener ke .libra-card
+        libraCard.addEventListener('click', toggleAudio);
 
         // Feedback visual awal
-        virgoCard.style.cursor = 'pointer';
-        virgoCard.title = 'Klik untuk Play/Pause lagu Virgo!';
+        libraCard.style.cursor = 'pointer';
+        libraCard.title = 'Klik untuk Play/Pause lagu Libra!';
     </script>
 </body>
 </html>
