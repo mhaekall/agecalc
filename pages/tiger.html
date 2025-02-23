@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis mendalam tentang shio Harimau: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="shio harimau, astrologi Tionghoa, elemen, kepribadian harimau, wawasan eksklusif">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Shio Harimau - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang shio Harimau: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/tiger-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/shio/harimau">
+    <title>Shio Harimau - AgeCalc</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --tiger-primary: #ff4500; /* Oranye terang untuk Harimau */
+            --tiger-secondary: #ffffff;
+            --tiger-accent: #ff6f33;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(255, 69, 0, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 69, 0, 0.8), 0 0 30px rgba(255, 69, 0, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .shio-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--tiger-primary);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--tiger-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--tiger-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .shio-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tiger-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--tiger-primary);
+        }
+
+        .tiger-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .tiger-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--tiger-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .tiger-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .tiger-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--tiger-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .tiger-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .tiger-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--tiger-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .tiger-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .tiger-card .years-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tiger-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elemen Switcher Vertikal */
+        .element-switcher {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem auto;
+            max-width: 200px;
+            padding: 0 1rem;
+        }
+
+        .element-option {
+            padding: 0.5rem 1rem;
+            background: var(--card-base);
+            border: 2px solid var(--tiger-primary);
+            border-radius: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .element-option:hover {
+            background: var(--tiger-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-option.active {
+            background: var(--tiger-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-icon {
+            font-size: 0.8rem;
+        }
+
+        .shio-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .shio-info {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .shio-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(255, 69, 0, 0.2);
+        }
+
+        .shio-info h2 {
+            color: var(--tiger-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .shio-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--tiger-accent);
+        }
+
+        .shio-info p {
+            font-size: 1.1rem;
+        }
+
+        .shio-info ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .shio-info ul li {
+            margin: 0.8rem 0;
+            position: relative;
+        }
+
+        .shio-info ul li::before {
+            content: '🐅';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--tiger-primary);
+            font-size: 1.2rem;
+        }
+
+        .shio-footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
+            color: var(--text-light);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsiv untuk Mobile */
+        @media (max-width: 768px) {
+            .tiger-card {
+                height: 280px;
+                padding: 2rem;
+            }
+            .tiger-card h1 { font-size: 2rem; }
+            .tiger-card .logo-circle { width: 100px; height: 100px; }
+            .tiger-card .logo-symbol { font-size: 2.5rem; }
+            .tiger-card .text-section { margin-top: 120px; }
+
+            .element-option { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+            .element-icon { font-size: 0.7rem; }
+            .shio-info h2 { font-size: 1.6rem; }
+            .element-switcher { max-width: 150px; }
+        }
+
+        @media (max-width: 576px) {
+            .shio-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .tiger-card { height: 260px; padding: 1.5rem; }
+            .tiger-card h1 { font-size: 1.8rem; }
+            .tiger-card .logo-circle { width: 80px; height: 80px; }
+            .tiger-card .logo-symbol { font-size: 2rem; }
+            .tiger-card .text-section { margin-top: 100px; }
+
+            .element-option { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+            .element-icon { font-size: 0.6rem; }
+            .shio-info h2 { font-size: 1.4rem; }
+            .element-switcher { max-width: 120px; }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+
+        .loading-overlay span {
+            color: var(--tiger-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: var(--neon-glow);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay"><span>Kekuatan Harimau Sedang Muncul...</span></div>
+    <nav class="shio-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <header class="shio-header">
+        <div class="tiger-card">
+            <div class="card-content">
+                <h1>Harimau</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐅</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element" id="yearsElement">2022 | Air</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="element-switcher">
+        <div class="element-option" data-element="Api"><span class="element-icon">🔥</span> Api</div>
+        <div class="element-option" data-element="Kayu"><span class="element-icon">🌳</span> Kayu</div>
+        <div class="element-option active" data-element="Air"><span class="element-icon">💧</span> Air</div>
+        <div class="element-option" data-element="Logam"><span class="element-icon">⚙️</span> Logam</div>
+        <div class="element-option" data-element="Tanah"><span class="element-icon">⛰️</span> Tanah</div>
+    </div>
+
+    <main class="shio-content" id="shioContent">
+        <section class="shio-info fade-in">
+            <h2>Elemen</h2>
+            <p id="elementDesc">Harimau Air kuat, intuitif, dan mengalir dengan fleksibilitas seperti air yang tak terbendung.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kepribadian</h2>
+            <p id="personalityDesc">Berani, penuh semangat, dan penuh pesona. Harimau Air memiliki daya tarik alami dan kemampuan beradaptasi yang tinggi.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kekuatan Strategis</h2>
+            <ul id="strengthsList">
+                <li><strong>Keberanian:</strong> Siap menghadapi tantangan besar.</li>
+                <li><strong>Intuisi:</strong> Membaca situasi dengan cepat.</li>
+                <li><strong>Fleksibilitas:</strong> Mudah menyesuaikan diri.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Risiko Tersembunyi</h2>
+            <ul id="risksList">
+                <li><strong>Impulsif:</strong> Bertindak tanpa perencanaan.</li>
+                <li><strong>Emosional:</strong> Mudah terbawa perasaan.</li>
+                <li><strong>Tidak Konsisten:</strong> Bisa kehilangan fokus.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kecocokan Hubungan</h2>
+            <p id="compatibilityText">Harimau Air cocok dengan:</p>
+            <ul id="compatibilityList">
+                <li><strong>Kerbau Air 🐂:</strong> Keduanya intuitif dan saling mendukung.</li>
+                <li><strong>Kuda Logam 🐎:</strong> Ketahanan Kuda melengkapi energi Harimau.</li>
+                <li><strong>Anjing Tanah 🐕:</strong> Kesetiaan Anjing cocok dengan semangat Harimau.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Karier & Keuangan</h2>
+            <p id="careerDesc">Harimau Air unggul di bidang yang membutuhkan kreativitas dan adaptasi, seperti seni atau pemasaran. Keuangan perlu perencanaan agar stabil.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Dinamika Cinta</h2>
+            <p id="loveDesc">Penuh gairah dan dinamis, Harimau Air mencari pasangan yang bisa mengikuti ritme cepatnya dan memberikan kebebasan.</p>
+        </section>
+    </main>
+
+    <footer class="shio-footer">
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const elementData = {
+            "Api": {
+                years: "1986", // Harimau Api (9 Feb 1986 - 28 Jan 1987)
+                elementDesc: "Harimau Api penuh energi, berani, dan bersinar seperti api yang tak terpadamkan.",
+                personalityDesc: "Kuat, penuh semangat, dan karismatik. Harimau Api adalah pemimpin alami yang penuh antusiasme.",
+                strengths: [
+                    "<strong>Keberanian:</strong> Tidak takut mengambil risiko besar.",
+                    "<strong>Karismatik:</strong> Menginspirasi orang lain.",
+                    "<strong>Energik:</strong> Selalu penuh tenaga."
+                ],
+                risks: [
+                    "<strong>Temperamental:</strong> Mudah marah jika tertekan.",
+                    "<strong>Terlalu Agresif:</strong> Bisa memicu konflik.",
+                    "<strong>Terburu-buru:</strong> Kurang perhatian pada detail."
+                ],
+                compatibility: [
+                    "<strong>Kerbau Api 🐂:</strong> Energi keduanya saling menguatkan.",
+                    "<strong>Kuda Tanah 🐎:</strong> Stabilitas Kuda melengkapi semangat Harimau.",
+                    "<strong>Anjing Logam 🐕:</strong> Kesetiaan Anjing cocok dengan keberanian Harimau."
+                ],
+                careerDesc: "Harimau Api cocok untuk karier yang membutuhkan keberanian dan kepemimpinan, seperti wirausaha atau olahraga. Keuangan bisa fluktuatif jika tidak dikelola.",
+                loveDesc: "Penuh gairah dan intens, Harimau Api mencari pasangan yang bisa mengimbangi energinya."
+            },
+            "Kayu": {
+                years: "1974", // Harimau Kayu (23 Jan 1974 - 10 Feb 1975)
+                elementDesc: "Harimau Kayu kuat, fleksibel, dan tumbuh dengan ketahanan seperti pohon besar.",
+                personalityDesc: "Kreatif, berpikiran terbuka, dan penuh semangat. Harimau Kayu dikenal sebagai inovator yang berani.",
+                strengths: [
+                    "<strong>Kreativitas:</strong> Selalu punya ide baru.",
+                    "<strong>Fleksibilitas:</strong> Mudah beradaptasi.",
+                    "<strong>Keberanian:</strong> Siap menghadapi tantangan."
+                ],
+                risks: [
+                    "<strong>Tidak Konsisten:</strong> Bisa kehilangan fokus.",
+                    "<strong>Terlalu Idealistis:</strong> Sulit menerima kenyataan.",
+                    "<strong>Impulsif:</strong> Bertindak tanpa perencanaan matang."
+                ],
+                compatibility: [
+                    "<strong>Kerbau Kayu 🐂:</strong> Sifat suportif Kerbau melengkapi kreativitas Harimau.",
+                    "<strong>Kuda Api 🐎:</strong> Energi Kuda cocok dengan semangat Harimau.",
+                    "<strong>Babi Tanah 🐖:</strong> Kelembutan Babi menyeimbangkan Harimau."
+                ],
+                careerDesc: "Harimau Kayu unggul di bidang yang membutuhkan inovasi, seperti desain atau teknologi. Keuangan baik jika ada rencana jangka panjang.",
+                loveDesc: "Hangat dan penuh semangat, Harimau Kayu mencari pasangan yang mendukung ide-idenya."
+            },
+            "Air": {
+                years: "2022", // Harimau Air (1 Feb 2022 - 21 Jan 2023)
+                elementDesc: "Harimau Air kuat, intuitif, dan mengalir dengan fleksibilitas seperti air yang tak terbendung.",
+                personalityDesc: "Berani, penuh semangat, dan penuh pesona. Harimau Air memiliki daya tarik alami dan kemampuan beradaptasi yang tinggi.",
+                strengths: [
+                    "<strong>Keberanian:</strong> Siap menghadapi tantangan besar.",
+                    "<strong>Intuisi:</strong> Membaca situasi dengan cepat.",
+                    "<strong>Fleksibilitas:</strong> Mudah menyesuaikan diri."
+                ],
+                risks: [
+                    "<strong>Impulsif:</strong> Bertindak tanpa perencanaan.",
+                    "<strong>Emosional:</strong> Mudah terbawa perasaan.",
+                    "<strong>Tidak Konsisten:</strong> Bisa kehilangan fokus."
+                ],
+                compatibility: [
+                    "<strong>Kerbau Air 🐂:</strong> Keduanya intuitif dan saling mendukung.",
+                    "<strong>Kuda Logam 🐎:</strong> Ketahanan Kuda melengkapi energi Harimau.",
+                    "<strong>Anjing Tanah 🐕:</strong> Kesetiaan Anjing cocok dengan semangat Harimau."
+                ],
+                careerDesc: "Harimau Air unggul di bidang yang membutuhkan kreativitas dan adaptasi, seperti seni atau pemasaran. Keuangan perlu perencanaan agar stabil.",
+                loveDesc: "Penuh gairah dan dinamis, Harimau Air mencari pasangan yang bisa mengikuti ritme cepatnya dan memberikan kebebasan."
+            },
+            "Logam": {
+                years: "2010", // Harimau Logam (14 Feb 2010 - 2 Feb 2011)
+                elementDesc: "Harimau Logam kuat, teguh, dan penuh ketahanan seperti logam yang tajam dan kokoh.",
+                personalityDesc: "Berani, ambisius, dan tegas. Harimau Logam adalah pejuang yang tak kenal takut.",
+                strengths: [
+                    "<strong>Ketegasan:</strong> Jelas dalam mengambil keputusan.",
+                    "<strong>Ketahanan:</strong> Tidak mudah menyerah.",
+                    "<strong>Keberanian:</strong> Siap menghadapi segala rintangan."
+                ],
+                risks: [
+                    "<strong>Keras Kepala:</strong> Sulit berkompromi.",
+                    "<strong>Terlalu Agresif:</strong> Bisa menyinggung orang lain.",
+                    "<strong>Tidak Sabar:</strong> Sulit menunggu hasil."
+                ],
+                compatibility: [
+                    "<strong>Kerbau Logam 🐂:</strong> Ketahanan keduanya menciptakan ikatan kuat.",
+                    "<strong>Kuda Kayu 🐎:</strong> Kreativitas Kuda melengkapi kekuatan Harimau.",
+                    "<strong>Anjing Api 🐕:</strong> Energi Anjing cocok dengan keberanian Harimau."
+                ],
+                careerDesc: "Harimau Logam cocok di bidang yang membutuhkan ketegasan, seperti hukum atau militer. Keuangan kuat jika fokus pada tujuan.",
+                loveDesc: "Loyal dan penuh semangat, Harimau Logam mencari pasangan yang menghargai kekuatannya."
+            },
+            "Tanah": {
+                years: "1998", // Harimau Tanah (28 Jan 1998 - 15 Feb 1999)
+                elementDesc: "Harimau Tanah kuat, stabil, dan menjadi fondasi seperti tanah yang kokoh.",
+                personalityDesc: "Praktis, berani, dan dapat diandalkan. Harimau Tanah memiliki kekuatan yang tenang namun teguh.",
+                strengths: [
+                    "<strong>Stabilitas:</strong> Dapat diandalkan dalam krisis.",
+                    "<strong>Keberanian:</strong> Tetap teguh menghadapi tantangan.",
+                    "<strong>Praktis:</strong> Selalu memberikan solusi realistis."
+                ],
+                risks: [
+                    "<strong>Terlalu Hati-hati:</strong> Bisa kehilangan peluang.",
+                    "<strong>Keras Kepala:</strong> Sulit menerima saran.",
+                    "<strong>Terlalu Serius:</strong> Kurang fleksibel dalam situasi santai."
+                ],
+                compatibility: [
+                    "<strong>Kerbau Tanah 🐂:</strong> Stabilitas keduanya menciptakan harmoni.",
+                    "<strong>Kuda Air 🐎:</strong> Fleksibilitas Kuda melengkapi kekuatan Harimau.",
+                    "<strong>Babi Logam 🐖:</strong> Ketahanan Babi cocok dengan keandalan Harimau."
+                ],
+                careerDesc: "Harimau Tanah cocok di bidang yang membutuhkan stabilitas dan keberanian, seperti konstruksi atau manajemen krisis. Keuangan stabil dengan pendekatan praktis.",
+                loveDesc: "Setia dan kuat, Harimau Tanah mencari pasangan yang menghargai stabilitas dan keberaniannya."
+            }
+        };
+
+        function updateContent(element) {
+            const data = elementData[element];
+            document.getElementById('yearsElement').textContent = `${data.years} | ${element}`;
+            document.getElementById('elementDesc').textContent = data.elementDesc;
+            document.getElementById('personalityDesc').textContent = data.personalityDesc;
+            document.getElementById('strengthsList').innerHTML = data.strengths.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('risksList').innerHTML = data.risks.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('compatibilityText').textContent = `Harimau ${element} cocok dengan:`;
+            document.getElementById('compatibilityList').innerHTML = data.compatibility.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('careerDesc').textContent = data.careerDesc;
+            document.getElementById('loveDesc').textContent = data.loveDesc;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.element-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    updateContent(option.getAttribute('data-element'));
+                });
+            });
+            updateContent('Air'); // Default ke Air (2022)
+        });
+    </script>
+</body>
+</html>
