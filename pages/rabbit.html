@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis mendalam tentang shio Kelinci: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="shio kelinci, astrologi Tionghoa, elemen, kepribadian kelinci, wawasan eksklusif">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Shio Kelinci - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang shio Kelinci: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/rabbit-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/shio/kelinci">
+    <title>Shio Kelinci - AgeCalc</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --rabbit-primary: #ff69b4; /* Pink lembut untuk Kelinci */
+            --rabbit-secondary: #ffffff;
+            --rabbit-accent: #ff99cc;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(255, 105, 180, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 30px rgba(255, 105, 180, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .shio-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--rabbit-primary);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--rabbit-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--rabbit-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .shio-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .rabbit-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--rabbit-primary);
+        }
+
+        .rabbit-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .rabbit-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--rabbit-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .rabbit-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .rabbit-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--rabbit-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .rabbit-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .rabbit-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--rabbit-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .rabbit-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .rabbit-card .years-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--rabbit-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elemen Switcher Vertikal */
+        .element-switcher {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem auto;
+            max-width: 200px;
+            padding: 0 1rem;
+        }
+
+        .element-option {
+            padding: 0.5rem 1rem;
+            background: var(--card-base);
+            border: 2px solid var(--rabbit-primary);
+            border-radius: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .element-option:hover {
+            background: var(--rabbit-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-option.active {
+            background: var(--rabbit-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-icon {
+            font-size: 0.8rem;
+        }
+
+        .shio-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .shio-info {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .shio-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(255, 105, 180, 0.2);
+        }
+
+        .shio-info h2 {
+            color: var(--rabbit-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .shio-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--rabbit-accent);
+        }
+
+        .shio-info p {
+            font-size: 1.1rem;
+        }
+
+        .shio-info ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .shio-info ul li {
+            margin: 0.8rem 0;
+            position: relative;
+        }
+
+        .shio-info ul li::before {
+            content: '🐇';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--rabbit-primary);
+            font-size: 1.2rem;
+        }
+
+        .shio-footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
+            color: var(--text-light);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsiv untuk Mobile */
+        @media (max-width: 768px) {
+            .rabbit-card {
+                height: 280px;
+                padding: 2rem;
+            }
+            .rabbit-card h1 { font-size: 2rem; }
+            .rabbit-card .logo-circle { width: 100px; height: 100px; }
+            .rabbit-card .logo-symbol { font-size: 2.5rem; }
+            .rabbit-card .text-section { margin-top: 120px; }
+
+            .element-option { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+            .element-icon { font-size: 0.7rem; }
+            .shio-info h2 { font-size: 1.6rem; }
+            .element-switcher { max-width: 150px; }
+        }
+
+        @media (max-width: 576px) {
+            .shio-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .rabbit-card { height: 260px; padding: 1.5rem; }
+            .rabbit-card h1 { font-size: 1.8rem; }
+            .rabbit-card .logo-circle { width: 80px; height: 80px; }
+            .rabbit-card .logo-symbol { font-size: 2rem; }
+            .rabbit-card .text-section { margin-top: 100px; }
+
+            .element-option { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+            .element-icon { font-size: 0.6rem; }
+            .shio-info h2 { font-size: 1.4rem; }
+            .element-switcher { max-width: 120px; }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+
+        .loading-overlay span {
+            color: var(--rabbit-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: var(--neon-glow);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay"><span>Ketenangan Kelinci Sedang Muncul...</span></div>
+    <nav class="shio-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <header class="shio-header">
+        <div class="rabbit-card">
+            <div class="card-content">
+                <h1>Kelinci</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐇</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element" id="yearsElement">2023 | Kayu</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="element-switcher">
+        <div class="element-option" data-element="Api"><span class="element-icon">🔥</span> Api</div>
+        <div class="element-option active" data-element="Kayu"><span class="element-icon">🌳</span> Kayu</div>
+        <div class="element-option" data-element="Air"><span class="element-icon">💧</span> Air</div>
+        <div class="element-option" data-element="Logam"><span class="element-icon">⚙️</span> Logam</div>
+        <div class="element-option" data-element="Tanah"><span class="element-icon">⛰️</span> Tanah</div>
+    </div>
+
+    <main class="shio-content" id="shioContent">
+        <section class="shio-info fade-in">
+            <h2>Elemen</h2>
+            <p id="elementDesc">Kelinci Kayu lembut, fleksibel, dan tumbuh dengan ketenangan seperti pohon yang anggun.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kepribadian</h2>
+            <p id="personalityDesc">Ramah, kreatif, dan penuh empati. Kelinci Kayu dikenal sebagai pendengar yang baik dan pencipta harmoni.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kekuatan Strategis</h2>
+            <ul id="strengthsList">
+                <li><strong>Empati:</strong> Memahami perasaan orang lain.</li>
+                <li><strong>Kreativitas:</strong> Penuh dengan ide-ide lembut.</li>
+                <li><strong>Fleksibilitas:</strong> Mudah menyesuaikan diri.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Risiko Tersembunyi</h2>
+            <ul id="risksList">
+                <li><strong>Terlalu Sensitif:</strong> Mudah tersinggung.</li>
+                <li><strong>Kurang Tegas:</strong> Sulit mengambil keputusan sulit.</li>
+                <li><strong>Terlalu Mengalah:</strong> Bisa dimanfaatkan.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kecocokan Hubungan</h2>
+            <p id="compatibilityText">Kelinci Kayu cocok dengan:</p>
+            <ul id="compatibilityList">
+                <li><strong>Tikus Kayu 🐀:</strong> Sifat suportif keduanya menciptakan harmoni.</li>
+                <li><strong>Kambing Tanah 🐐:</strong> Kelembutan Kambing melengkapi ketenangan Kelinci.</li>
+                <li><strong>Babi Air 🐖:</strong> Empati Babi cocok dengan sifat Kelinci.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Karier & Keuangan</h2>
+            <p id="careerDesc">Kelinci Kayu unggul di bidang yang membutuhkan kreativitas dan empati, seperti seni atau pendidikan. Keuangan stabil dengan pendekatan hati-hati.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Dinamika Cinta</h2>
+            <p id="loveDesc">Lembut dan penuh kasih, Kelinci Kayu mencari pasangan yang menghargai kepekaannya dan memberikan rasa aman.</p>
+        </section>
+    </main>
+
+    <footer class="shio-footer">
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const elementData = {
+            "Api": {
+                years: "1987", // Kelinci Api (29 Jan 1987 - 16 Feb 1988)
+                elementDesc: "Kelinci Api hangat, penuh semangat, dan bersinar dengan energi yang lembut namun kuat.",
+                personalityDesc: "Ramah, bersemangat, dan penuh pesona. Kelinci Api memiliki kelembutan yang dipadukan dengan energi dinamis.",
+                strengths: [
+                    "<strong>Pesona:</strong> Menarik perhatian dengan kelembutan.",
+                    "<strong>Energi:</strong> Selalu antusias dalam tindakan.",
+                    "<strong>Empati:</strong> Peduli pada orang lain."
+                ],
+                risks: [
+                    "<strong>Terlalu Emosional:</strong> Mudah terbawa perasaan.",
+                    "<strong>Kurang Sabar:</strong> Sulit menunggu hasil.",
+                    "<strong>Terlalu Sensitif:</strong> Mudah tersinggung."
+                ],
+                compatibility: [
+                    "<strong>Tikus Api 🐀:</strong> Energi keduanya saling menguatkan.",
+                    "<strong>Kambing Logam 🐐:</strong> Ketahanan Kambing melengkapi semangat Kelinci.",
+                    "<strong>Babi Tanah 🐖:</strong> Kelembutan Babi cocok dengan pesona Kelinci."
+                ],
+                careerDesc: "Kelinci Api cocok untuk karier yang membutuhkan kreativitas dan interaksi sosial, seperti hubungan masyarakat atau hiburan. Keuangan baik jika dikelola dengan hati-hati.",
+                loveDesc: "Penuh kasih dan antusias, Kelinci Api mencari pasangan yang bisa mengimbangi energinya."
+            },
+            "Kayu": {
+                years: "2023", // Kelinci Kayu (22 Jan 2023 - 9 Feb 2024)
+                elementDesc: "Kelinci Kayu lembut, fleksibel, dan tumbuh dengan ketenangan seperti pohon yang anggun.",
+                personalityDesc: "Ramah, kreatif, dan penuh empati. Kelinci Kayu dikenal sebagai pendengar yang baik dan pencipta harmoni.",
+                strengths: [
+                    "<strong>Empati:</strong> Memahami perasaan orang lain.",
+                    "<strong>Kreativitas:</strong> Penuh dengan ide-ide lembut.",
+                    "<strong>Fleksibilitas:</strong> Mudah menyesuaikan diri."
+                ],
+                risks: [
+                    "<strong>Terlalu Sensitif:</strong> Mudah tersinggung.",
+                    "<strong>Kurang Tegas:</strong> Sulit mengambil keputusan sulit.",
+                    "<strong>Terlalu Mengalah:</strong> Bisa dimanfaatkan."
+                ],
+                compatibility: [
+                    "<strong>Tikus Kayu 🐀:</strong> Sifat suportif keduanya menciptakan harmoni.",
+                    "<strong>Kambing Tanah 🐐:</strong> Kelembutan Kambing melengkapi ketenangan Kelinci.",
+                    "<strong>Babi Air 🐖:</strong> Empati Babi cocok dengan sifat Kelinci."
+                ],
+                careerDesc: "Kelinci Kayu unggul di bidang yang membutuhkan kreativitas dan empati, seperti seni atau pendidikan. Keuangan stabil dengan pendekatan hati-hati.",
+                loveDesc: "Lembut dan penuh kasih, Kelinci Kayu mencari pasangan yang menghargai kepekaannya dan memberikan rasa aman."
+            },
+            "Air": {
+                years: "2011", // Kelinci Air (3 Feb 2011 - 22 Jan 2012)
+                elementDesc: "Kelinci Air tenang, intuitif, dan mengalir dengan kepekaan seperti air yang jernih.",
+                personalityDesc: "Lembut, bijaksana, dan penuh empati. Kelinci Air memiliki kepekaan emosional yang mendalam.",
+                strengths: [
+                    "<strong>Intuisi:</strong> Membaca situasi dengan baik.",
+                    "<strong>Kepekaan:</strong> Memahami kebutuhan orang lain.",
+                    "<strong>Ketenangan:</strong> Tetap damai di tengah tekanan."
+                ],
+                risks: [
+                    "<strong>Terlalu Pendiam:</strong> Sulit mengekspresikan diri.",
+                    "<strong>Terlalu Sensitif:</strong> Mudah terluka.",
+                    "<strong>Pasif:</strong> Kurang inisiatif."
+                ],
+                compatibility: [
+                    "<strong>Tikus Air 🐀:</strong> Keduanya intuitif dan saling memahami.",
+                    "<strong>Kambing Kayu 🐐:</strong> Kreativitas Kambing melengkapi ketenangan Kelinci.",
+                    "<strong>Babi Logam 🐖:</strong> Ketahanan Babi cocok dengan kepekaan Kelinci."
+                ],
+                careerDesc: "Kelinci Air cocok di bidang yang membutuhkan kepekaan dan ketenangan, seperti konseling atau seni terapi. Keuangan aman dengan perencanaan.",
+                loveDesc: "Setia dan penuh perhatian, Kelinci Air mencari pasangan yang mendalam dan suportif."
+            },
+            "Logam": {
+                years: "1999", // Kelinci Logam (16 Feb 1999 - 4 Feb 2000)
+                elementDesc: "Kelinci Logam kuat, teguh, dan elegan seperti logam yang halus namun kokoh.",
+                personalityDesc: "Disiplin, anggun, dan penuh pesona. Kelinci Logam memiliki kekuatan yang tersembunyi di balik kelembutannya.",
+                strengths: [
+                    "<strong>Elegansi:</strong> Memiliki gaya yang menawan.",
+                    "<strong>Ketahanan:</strong> Kuat dalam menghadapi kesulitan.",
+                    "<strong>Disiplin:</strong> Terorganisir dan fokus."
+                ],
+                risks: [
+                    "<strong>Terlalu Perfeksionis:</strong> Bisa memperlambat kemajuan.",
+                    "<strong>Kaku:</strong> Sulit menerima perubahan.",
+                    "<strong>Sulit Membuka Diri:</strong> Cenderung tertutup."
+                ],
+                compatibility: [
+                    "<strong>Tikus Logam 🐀:</strong> Ketahanan keduanya menciptakan ikatan yang kuat.",
+                    "<strong>Kambing Api 🐐:</strong> Energi Kambing melengkapi elegansi Kelinci.",
+                    "<strong>Babi Tanah 🐖:</strong> Stabilitas Babi cocok dengan ketenangan Kelinci."
+                ],
+                careerDesc: "Kelinci Logam unggul di bidang yang membutuhkan ketelitian dan estetika, seperti desain interior atau mode. Keuangan kuat jika terarah.",
+                loveDesc: "Loyal dan anggun, Kelinci Logam mencari pasangan yang menghargai kepekaan dan gayanya."
+            },
+            "Tanah": {
+                years: "1975", // Kelinci Tanah (11 Feb 1975 - 30 Jan 1976)
+                elementDesc: "Kelinci Tanah stabil, lembut, dan menjadi fondasi yang hangat seperti tanah yang subur.",
+                personalityDesc: "Praktis, ramah, dan dapat diandalkan. Kelinci Tanah adalah penutup yang penuh kasih.",
+                strengths: [
+                    "<strong>Keandalan:</strong> Selalu bisa dipercaya.",
+                    "<strong>Kelembutan:</strong> Membawa kedamaian.",
+                    "<strong>Praktis:</strong> Solusi selalu realistis."
+                ],
+                risks: [
+                    "<strong>Terlalu Hati-hati:</strong> Bisa melewatkan peluang.",
+                    "<strong>Terlalu Mengalah:</strong> Mudah dikendalikan.",
+                    "<strong>Konservatif:</strong> Menolak perubahan."
+                ],
+                compatibility: [
+                    "<strong>Tikus Tanah 🐀:</strong> Stabilitas keduanya menciptakan harmoni.",
+                    "<strong>Kambing Air 🐐:</strong> Kepekaan Kambing melengkapi kelembutan Kelinci.",
+                    "<strong>Babi Kayu 🐖:</strong> Kreativitas Babi cocok dengan ketenangan Kelinci."
+                ],
+                careerDesc: "Kelinci Tanah cocok di bidang yang membutuhkan stabilitas dan kelembutan, seperti perawatan atau administrasi. Keuangan stabil dengan pendekatan hemat.",
+                loveDesc: "Setia dan hangat, Kelinci Tanah mencari pasangan yang memberikan rasa aman dan keharmonisan."
+            }
+        };
+
+        function updateContent(element) {
+            const data = elementData[element];
+            document.getElementById('yearsElement').textContent = `${data.years} | ${element}`;
+            document.getElementById('elementDesc').textContent = data.elementDesc;
+            document.getElementById('personalityDesc').textContent = data.personalityDesc;
+            document.getElementById('strengthsList').innerHTML = data.strengths.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('risksList').innerHTML = data.risks.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('compatibilityText').textContent = `Kelinci ${element} cocok dengan:`;
+            document.getElementById('compatibilityList').innerHTML = data.compatibility.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('careerDesc').textContent = data.careerDesc;
+            document.getElementById('loveDesc').textContent = data.loveDesc;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.element-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    updateContent(option.getAttribute('data-element'));
+                });
+            });
+            updateContent('Kayu'); // Default ke Kayu (2023)
+        });
+    </script>
+</body>
+</html>
