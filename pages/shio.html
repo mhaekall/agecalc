@@ -1,1 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jelajahi shio Anda dengan desain premium modern di AgeCalc.">
+    <meta name="keywords" content="shio, astrologi Tionghoa, premium, modern">
+    <meta name="author" content="Your Name">
+    <title>Daftar Shio Premium - AgeCalc</title>
 
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #000000;
+            --card-base: #1e1e33;
+            --text-light: #d9d9e6;
+            --accent: #ff5b5b;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.7);
+            --glow: 0 0 12px rgba(255, 91, 91, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi */
+        .shio-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        /* Header */
+        .shio-header {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            position: relative;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .shio-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: var(--glow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .shio-header p {
+            font-size: 1.3rem;
+            opacity: 0.85;
+            margin-top: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shio-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 91, 91, 0.15), transparent);
+            animation: subtleRotate 25s linear infinite;
+        }
+
+        /* Shio Container */
+        .shio-container {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Shio Card Base */
+        .shio-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--card-base);
+        }
+
+        .shio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .shio-card h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ff00ff;
+            text-shadow: var(--neon-glow);
+        }
+
+        .shio-card .symbol {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            text-shadow: var(--glow);
+        }
+
+        .shio-card .years-element {
+            font-size: 1rem;
+            opacity: 1;
+            margin-top: 0rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Desain Card Mirip Template */
+        .shio-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .shio-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .shio-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid;
+            border-radius: 50%;
+            border-color: transparent;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .shio-card .logo-symbol {
+            font-size: 2.5rem;
+            color: var(--bg-dark);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .shio-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--accent);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .shio-card .text-section {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            margin-top: 140px;
+        }
+
+        /* Warna Neon dan Background Sesuai Shio */
+        .rat-card {
+            background: #d4a017; /* Kuning emas cerdas */
+        }
+        .rat-card .logo-circle::before { border-color: #ffffff; }
+        .rat-card .border-line { background: #ffffff; }
+        .rat-card h2 { color: #ffffff; }
+        .rat-card .years-element { content: '1948, 1960, 1972, 1984, 1996, 2008, 2020 | 🐀'; color: #ffffff; }
+
+        .ox-card {
+            background: #4a7045; /* Hijau kekuatan */
+        }
+        .ox-card .logo-circle::before { border-color: #00ff00; }
+        .ox-card .border-line { background: #00ff00; }
+        .ox-card h2 { color: #00ff00; }
+        .ox-card .years-element { content: '1949, 1961, 1973, 1985, 1997, 2009, 2021 | 🐂'; color: #00ff00; }
+
+        .tiger-card {
+            background: #ff4500; /* Oranye berani */
+        }
+        .tiger-card .logo-circle::before { border-color: #ffffff; }
+        .tiger-card .border-line { background: #ffffff; }
+        .tiger-card h2 { color: #ffffff; }
+        .tiger-card .years-element { content: '1950, 1962, 1974, 1986, 1998, 2010, 2022 | 🐅'; color: #ffffff; }
+
+        .rabbit-card {
+            background: #ff69b4; /* Pink lembut */
+        }
+        .rabbit-card .logo-circle::before { border-color: #ffffff; }
+        .rabbit-card .border-line { background: #ffffff; }
+        .rabbit-card h2 { color: #ffffff; }
+        .rabbit-card .years-element { content: '1951, 1963, 1975, 1987, 1999, 2011, 2023 | 🐇'; color: #ffffff; }
+
+        .dragon-card {
+            background: #ff0000; /* Merah kuat */
+        }
+        .dragon-card .logo-circle::before { border-color: #ffffff; }
+        .dragon-card .border-line { background: #ffffff; }
+        .dragon-card h2 { color: #ffffff; }
+        .dragon-card .years-element { content: '1952, 1964, 1976, 1988, 2000, 2012, 2024 | 🐉'; color: #ffffff; }
+
+        .snake-card {
+            background: #800080; /* Ungu misterius */
+        }
+        .snake-card .logo-circle::before { border-color: #ff00ff; }
+        .snake-card .border-line { background: #ff00ff; }
+        .snake-card h2 { color: #ff00ff; }
+        .snake-card .years-element { content: '1953, 1965, 1977, 1989, 2001, 2013, 2025 | 🐍'; color: #ff00ff; }
+
+        .horse-card {
+            background: #ff8c00; /* Oranye energik */
+        }
+        .horse-card .logo-circle::before { border-color: #ffffff; }
+        .horse-card .border-line { background: #ffffff; }
+        .horse-card h2 { color: #ffffff; }
+        .horse-card .years-element { content: '1954, 1966, 1978, 1990, 2002, 2014, 2026 | 🐎'; color: #ffffff; }
+
+        .goat-card {
+            background: #00ced1; /* Turquoise kreatif */
+        }
+        .goat-card .logo-circle::before { border-color: #ffffff; }
+        .goat-card .border-line { background: #ffffff; }
+        .goat-card h2 { color: #ffffff; }
+        .goat-card .years-element { content: '1955, 1967, 1979, 1991, 2003, 2015, 2027 | 🐐'; color: #ffffff; }
+
+        .monkey-card {
+            background: #ffd700; /* Kuning cerdas */
+        }
+        .monkey-card .logo-circle::before { border-color: #ffffff; }
+        .monkey-card .border-line { background: #ffffff; }
+        .monkey-card h2 { color: #ffffff; }
+        .monkey-card .years-element { content: '1956, 1968, 1980, 1992, 2004, 2016, 2028 | 🐒'; color: #ffffff; }
+
+        .rooster-card {
+            background: #ff4500; /* Merah berani */
+        }
+        .rooster-card .logo-circle::before { border-color: #ffffff; }
+        .rooster-card .border-line { background: #ffffff; }
+        .rooster-card h2 { color: #ffffff; }
+        .rooster-card .years-element { content: '1957, 1969, 1981, 1993, 2005, 2017, 2029 | 🐓'; color: #ffffff; }
+
+        .dog-card {
+            background: #8b4513; /* Coklat setia */
+        }
+        .dog-card .logo-circle::before { border-color: #ffffff; }
+        .dog-card .border-line { background: #ffffff; }
+        .dog-card h2 { color: #ffffff; }
+        .dog-card .years-element { content: '1958, 1970, 1982, 1994, 2006, 2018, 2030 | 🐕'; color: #ffffff; }
+
+        .pig-card {
+            background: #ff69b4; /* Pink damai */
+        }
+        .pig-card .logo-circle::before { border-color: #ffffff; }
+        .pig-card .border-line { background: #ffffff; }
+        .pig-card h2 { color: #ffffff; }
+        .pig-card .years-element { content: '1959, 1971, 1983, 1995, 2007, 2019, 2031 | 🐖'; color: #ffffff; }
+
+        /* Highlight Shio Tahun Ini */
+        .shio-card.today {
+            border: 2px solid var(--accent);
+            box-shadow: var(--glow), var(--shadow);
+        }
+
+        /* Footer */
+        .shio-footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e1e33, #2a2a4d);
+            position: relative;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .shio-footer p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .shio-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            transition: var(--transition);
+        }
+
+        .shio-footer a:hover {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .shio-footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 91, 91, 0.15), transparent);
+            animation: subtleRotate 30s linear infinite;
+        }
+
+        /* Animasi Ringan */
+        @keyframes subtleRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsiv */
+        @media (max-width: 1200px) {
+            .shio-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .shio-card .logo-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .shio-card .logo-symbol {
+                font-size: 2rem;
+            }
+
+            .shio-card .text-section {
+                margin-top: 120px;
+            }
+
+            .shio-card h2 {
+                font-size: 2.2rem;
+            }
+
+            .shio-card .years-element {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .shio-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .shio-header p {
+                font-size: 1.1rem;
+            }
+
+            .shio-card {
+                height: 280px;
+                padding: 2rem;
+            }
+
+            .shio-card h2 {
+                font-size: 2rem;
+            }
+
+            .shio-card .symbol {
+                font-size: 3rem;
+            }
+
+            .shio-card .years-element {
+                font-size: 0.9rem;
+            }
+
+            .shio-card .logo-circle {
+                width: 90px;
+                height: 90px;
+            }
+
+            .shio-card .logo-symbol {
+                font-size: 1.8rem;
+            }
+
+            .shio-card .text-section {
+                margin-top: 110px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .shio-nav {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .shio-header {
+                padding: 3rem 1rem;
+            }
+
+            .shio-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .shio-container {
+                padding: 0 1rem;
+            }
+
+            .shio-card {
+                height: 260px;
+                padding: 1.5rem;
+            }
+
+            .shio-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .shio-card .symbol {
+                font-size: 2.5rem;
+            }
+
+            .shio-card .years-element {
+                font-size: 0.85rem;
+            }
+
+            .shio-card .logo-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .shio-card .logo-symbol {
+                font-size: 1.6rem;
+            }
+
+            .shio-card .text-section {
+                margin-top: 100px;
+            }
+
+            .shio-footer {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="shio-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="shio-header">
+        <h1>Jelajahi Shio</h1>
+        <p>Pilih Shio yang ingin anda ketahui</p>
+    </header>
+
+    <!-- Daftar Shio -->
+    <section class="shio-container">
+        <a href="/pages/shio/rat" class="shio-card rat-card">
+            <div class="card-content">
+                <h2>Tikus</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐀</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1948, 1960, 1972, 1984, 1996, 2008, 2020</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/ox" class="shio-card ox-card">
+            <div class="card-content">
+                <h2>Kerbau</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐂</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1949, 1961, 1973, 1985, 1997, 2009, 2021</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/tiger" class="shio-card tiger-card">
+            <div class="card-content">
+                <h2>Harimau</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐅</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1950, 1962, 1974, 1986, 1998, 2010, 2022</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/rabbit" class="shio-card rabbit-card">
+            <div class="card-content">
+                <h2>Kelinci</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐇</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1951, 1963, 1975, 1987, 1999, 2011, 2023</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/dragon" class="shio-card dragon-card">
+            <div class="card-content">
+                <h2>Naga</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐉</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1952, 1964, 1976, 1988, 2000, 2012, 2024</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/snake" class="shio-card snake-card">
+            <div class="card-content">
+                <h2>Ular</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐍</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1953, 1965, 1977, 1989, 2001, 2013, 2025</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/horse" class="shio-card horse-card">
+            <div class="card-content">
+                <h2>Kuda</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐎</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1954, 1966, 1978, 1990, 2002, 2014, 2026</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/goat" class="shio-card goat-card">
+            <div class="card-content">
+                <h2>Kambing</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐐</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1955, 1967, 1979, 1991, 2003, 2015, 2027</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/monkey" class="shio-card monkey-card">
+            <div class="card-content">
+                <h2>Monyet</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐒</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1956, 1968, 1980, 1992, 2004, 2016, 2028</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/rooster" class="shio-card rooster-card">
+            <div class="card-content">
+                <h2>Ayam</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐓</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1957, 1969, 1981, 1993, 2005, 2017, 2029</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/dog" class="shio-card dog-card">
+            <div class="card-content">
+                <h2>Anjing</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐕</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1958, 1970, 1982, 1994, 2006, 2018, 2030</span>
+                </div>
+            </div>
+        </a>
+        <a href="/pages/shio/pig" class="shio-card pig-card">
+            <div class="card-content">
+                <h2>Babi</h2>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐖</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element">1959, 1971, 1983, 1995, 2007, 2019, 2031</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="shio-footer">
+        <p>© 2025 AgeCalc - All Rights Reserved</p>
+        <a href="/pages/about">Tentang Kami</a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Highlight Shio Tahun Ini
+        function highlightCurrentShio() {
+            const today = new Date();
+            const currentYear = today.getFullYear(); // Mengambil tahun saat ini secara dinamis
+
+            const shioYears = {
+                'Tikus': [1948, 1960, 1972, 1984, 1996, 2008, 2020],
+                'Kerbau': [1949, 1961, 1973, 1985, 1997, 2009, 2021],
+                'Harimau': [1950, 1962, 1974, 1986, 1998, 2010, 2022],
+                'Kelinci': [1951, 1963, 1975, 1987, 1999, 2011, 2023],
+                'Naga': [1952, 1964, 1976, 1988, 2000, 2012, 2024],
+                'Ular': [1953, 1965, 1977, 1989, 2001, 2013, 2025],
+                'Kuda': [1954, 1966, 1978, 1990, 2002, 2014, 2026],
+                'Kambing': [1955, 1967, 1979, 1991, 2003, 2015, 2027],
+                'Monyet': [1956, 1968, 1980, 1992, 2004, 2016, 2028],
+                'Ayam': [1957, 1969, 1981, 1993, 2005, 2017, 2029],
+                'Anjing': [1958, 1970, 1982, 1994, 2006, 2018, 2030],
+                'Babi': [1959, 1971, 1983, 1995, 2007, 2019, 2031]
+            };
+
+            const currentShio = Object.keys(shioYears).find(shio => {
+                const years = shioYears[shio];
+                const cycleYear = (currentYear - years[0]) % 12;
+                return cycleYear === 0;
+            });
+
+            if (currentShio) {
+                const card = document.querySelector(`.shio-card h2:contains('${currentShio}')`).parentElement.parentElement;
+                card.classList.add('today');
+            }
+        }
+
+        // Inisialisasi
+        document.addEventListener('DOMContentLoaded', () => {
+            highlightCurrentShio();
+        });
+
+        // Polyfill untuk :contains
+        if (!HTMLElement.prototype.querySelector) {
+            HTMLElement.prototype.querySelector = function(selector) {
+                const elements = this.querySelectorAll('*');
+                for (let el of elements) {
+                    if (el.textContent.includes(selector.split(':contains(')[1].slice(0, -1))) {
+                        return el;
+                    }
+                }
+                return null;
+            };
+        }
+    </script>
+</body>
+</html>
