@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis mendalam tentang zodiak Virgo: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="zodiak virgo, astrologi, elemen tanah, kepribadian virgo, wawasan eksklusif">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Zodiak Virgo - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang zodiak Virgo: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/virgo-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/zodiac/virgo">
+    <title>Zodiak Virgo - AgeCalc</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --virgo-primary: #8b7d6b; /* Coklat analitis */
+            --virgo-secondary: #ffcc00; /* Kuning neon */
+            --virgo-accent: #665533; /* Coklat tua */
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(255, 204, 0, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .zodiac-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--virgo-primary);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--virgo-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--virgo-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .zodiac-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .virgo-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--virgo-primary);
+        }
+
+        .virgo-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .virgo-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--virgo-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .virgo-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .virgo-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--virgo-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .virgo-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .virgo-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--virgo-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .virgo-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .virgo-card .dates-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--virgo-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .zodiac-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .zodiac-info {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .zodiac-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(255, 204, 0, 0.2);
+        }
+
+        .zodiac-info h2 {
+            color: var(--virgo-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .zodiac-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--virgo-accent);
+        }
+
+        .zodiac-info p {
+            font-size: 1.1rem;
+        }
+
+        .zodiac-info ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .zodiac-info ul li {
+            margin: 0.8rem 0;
+            position: relative;
+        }
+
+        .zodiac-info ul li::before {
+            content: '🌍';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--virgo-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Kalkulator Kecocokan - Card Design */
+        .compatibility-calculator {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .compatibility-calculator h2 {
+            color: var(--virgo-primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .zodiac-options {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--virgo-primary);
+            border-radius: var(--border-radius);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .zodiac-option {
+            position: relative;
+            padding: 1.5rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            background: var(--card-base);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zodiac-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(255, 204, 0, 0.2);
+        }
+
+        .zodiac-option .logo-circle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--virgo-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .zodiac-option .logo-symbol {
+            font-size: 1.8rem;
+            color: var(--bg-dark);
+        }
+
+        .zodiac-option .border-line {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--virgo-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .zodiac-option .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 70px;
+        }
+
+        .zodiac-option h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--virgo-primary);
+            text-transform: uppercase;
+        }
+
+        .zodiac-option .element {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .zodiac-option.selected {
+            border: 2px solid var(--virgo-primary);
+            background: var(--bg-dark);
+        }
+
+        .compatibility-calculator button {
+            padding: 0.8rem 1.5rem;
+            background: var(--virgo-primary);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .compatibility-calculator button:hover {
+            background: var(--virgo-accent);
+            box-shadow: var(--glow);
+        }
+
+        .compatibility-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--card-base);
+            border: 1px solid var(--virgo-primary);
+            border-radius: 5px;
+            color: var(--text-light);
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .zodiac-footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
+            color: var(--text-light);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .zodiac-footer a {
+            color: var(--virgo-primary);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-weight: 500;
+        }
+
+        .zodiac-footer a:hover {
+            color: var(--virgo-accent);
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+
+        .loading-overlay span {
+            color: var(--virgo-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: var(--neon-glow);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .virgo-card {
+                height: 280px;
+                padding: 2rem;
+            }
+            .virgo-card h1 { font-size: 2rem; }
+            .virgo-card .logo-circle { width: 100px; height: 100px; }
+            .virgo-card .logo-symbol { font-size: 2.5rem; }
+            .virgo-card .text-section { margin-top: 120px; }
+
+            .zodiac-option { padding: 1rem; }
+            .zodiac-option .logo-circle { width: 50px; height: 50px; }
+            .zodiac-option .logo-symbol { font-size: 1.5rem; }
+            .zodiac-option .text-section { margin-top: 60px; }
+            .zodiac-option h3 { font-size: 1rem; }
+        }
+
+        @media (max-width: 576px) {
+            .zodiac-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .virgo-card { height: 260px; padding: 1.5rem; }
+            .virgo-card h1 { font-size: 1.8rem; }
+            .virgo-card .logo-circle { width: 80px; height: 80px; }
+            .virgo-card .logo-symbol { font-size: 2rem; }
+            .virgo-card .text-section { margin-top: 100px; }
+            .zodiac-info h2 { font-size: 1.6rem; }
+
+            .zodiac-option { padding: 0.8rem; }
+            .zodiac-option .logo-circle { width: 30px; height: 30px; }
+            .zodiac-option .logo-symbol { font-size: 0.95rem; }
+            .zodiac-option .text-section { margin-top: 89px; }
+            .zodiac-option h3 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay"><span>Virgo Power Loading...</span></div>
+    <nav class="zodiac-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <header class="zodiac-header">
+        <div class="virgo-card">
+            <div class="card-content">
+                <h1>Virgo</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♍</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">23 Agustus - 22 September | 🌍</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="zodiac-content">
+        <section class="zodiac-info fade-in">
+            <h2>Elemen: Tanah</h2>
+            <p>Virgo, zodiak keenam dalam astrologi Barat, diatur oleh elemen tanah yang melambangkan analisis, ketelitian, dan praktisitas. Mereka dikenal sebagai pemikir yang rapi dan cermat.</p>
+        </section>
+
+        <section class="zodiac-info fade-in">
+            <h2>Kepribadian</h2>
+            <p>Virgo memiliki sifat analitis, detail-oriented, dan praktis. Mereka cermat, suka organisasi, dan sering membantu orang lain, tapi kadang terlihat terlalu kritis atau perfeksionis.</p>
+        </section>
+
+        <section class="zodiac-info fade-in">
+            <h2>Kekuatan Strategis</h2>
+            <ul>
+                <li><strong>Analitis:</strong> Mampu menganalisis masalah dengan teliti dan akurat.</li>
+                <li><strong>Organisasi:</strong> Rapi dan efisien dalam mengatur tugas.</li>
+                <li><strong>Kepraktisan:</strong> Fokus pada solusi yang realistis dan efektif.</li>
+            </ul>
+        </section>
+
+        <section class="zodiac-info fade-in">
+            <h2>Risiko Tersembunyi</h2>
+            <ul>
+                <li><strong>Perfeksionis:</strong> Terlalu fokus pada detail bisa lambatkan proses.</li>
+                <li><strong>Kritis Berlebihan:</strong> Kadang terlihat judes atau terlalu kritis pada orang lain.</li>
+                <li><strong>Stres Mudah:</strong> Rentan stres karena standar tinggi sendiri.</li>
+            </ul>
+        </section>
+
+        <section class="zodiac-info fade-in compatibility-calculator">
+            <h2>Kecocokan Hubungan</h2>
+            <p>Pilih zodiak untuk melihat kecocokan dengan Virgo.</p>
+            <div class="zodiac-options" id="zodiacOptions">
+                <div class="zodiac-option" data-zodiac="Aries">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♈</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Aries</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Taurus">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♉</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Taurus</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Gemini">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♊</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Gemini</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Cancer">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♋</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Cancer</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Leo">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♌</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Leo</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Virgo">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♍</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Virgo</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Libra">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♎</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Libra</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Scorpio">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♏</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Scorpio</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Sagittarius">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♐</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Sagittarius</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Capricorn">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♑</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Capricorn</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Aquarius">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♒</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Aquarius</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Pisces">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♓</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Pisces</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculateCompatibility()">Hitung Kecocokan</button>
+            <div id="compatibilityResult" class="compatibility-result"></div>
+        </section>
+
+        <section class="zodiac-info fade-in">
+            <h2>Karier & Keuangan</h2>
+            <p>Virgo unggul di bidang yang membutuhkan ketelitian, seperti penelitian, akuntansi, atau kesehatan. Dalam keuangan, mereka hemat dan terorganisir, tapi perlu hati-hati dengan perfeksionisme.</p>
+        </section>
+
+        <section class="zodiac-info fade-in">
+            <h2>Dinamika Cinta</h2>
+            <p>Virgo membawa kesetiaan dan perhatian dalam hubungan. Mereka mencari pasangan yang menghargai ketelitian mereka, meskipun kadang terlihat terlalu kritis atau tertutup emosional.</p>
+        </section>
+    </main>
+
+    <footer class="zodiac-footer">
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
+        <a href="/pages/about.html">Tentang Kami</a>
+    </footer>
+
+    <script>
+        // Data kecocokan zodiak Virgo dengan persentase dan emoji
+        const compatibilityData = {
+            "Aries": { percent: 50, text: "Kurang cocok - Impulsivitas Aries bentrok dengan ketelitian Virgo 😢" },
+            "Taurus": { percent: 85, text: "Sangat cocok - Stabilitas Taurus harmonis dengan praktis Virgo 😊" },
+            "Gemini": { percent: 65, text: "Baik - Ketelitian Virgo komplementer dengan ide Gemini 😊" },
+            "Cancer": { percent: 75, text: "Cocok - Ketelitian Virgo stabilkan emosi Cancer 😊" },
+            "Leo": { percent: 55, text: "Tantangan - Ketelitian Virgo bentrok dengan ego Leo 😕" },
+            "Virgo": { percent: 90, text: "Sangat cocok - Analisis saling mendukung 😊" },
+            "Libra": { percent: 70, text: "Baik - Keseimbangan Libra melengkapi ketelitian Virgo 😊" },
+            "Scorpio": { percent: 65, text: "Baik - Intensitas Scorpio cocok dengan analisis Virgo 😊" },
+            "Sagittarius": { percent: 50, text: "Kurang cocok - Spontanitas Sagittarius bentrok dengan struktur Virgo 😢" },
+            "Capricorn": { percent: 80, text: "Cocok - Ambisi Capricorn harmonis dengan ketelitian Virgo 😊" },
+            "Aquarius": { percent: 60, text: "Netral - Inovasi Aquarius kontras dengan praktis Virgo 😐" },
+            "Pisces": { percent: 70, text: "Baik - Sensitivitas Pisces melengkapi analisis Virgo 😊" }
+        };
+
+        let selectedZodiac = null;
+
+        // Fungsi untuk pilih zodiak
+        function selectZodiac(zodiac) {
+            selectedZodiac = zodiac;
+            const options = document.querySelectorAll('.zodiac-option');
+            options.forEach(option => option.classList.remove('selected'));
+            document.querySelector(`.zodiac-option[data-zodiac="${zodiac}"]`).classList.add('selected');
+        }
+
+        // Fungsi untuk hitung kecocokan
+        function calculateCompatibility() {
+            const resultDiv = document.getElementById('compatibilityResult');
+            resultDiv.style.display = 'none';
+            resultDiv.textContent = '';
+
+            if (!selectedZodiac) {
+                resultDiv.textContent = "Silakan pilih zodiak terlebih dahulu.";
+                resultDiv.style.display = "block";
+                return;
+            }
+
+            const compatibility = compatibilityData[selectedZodiac] || { percent: 60, text: "Netral - Kecocokan biasa saja 😐" };
+            resultDiv.textContent = `${compatibility.percent}% - ${compatibility.text}`;
+            resultDiv.style.display = "block";
+        }
+
+        // Event listener untuk zodiak options
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.zodiac-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => selectZodiac(option.getAttribute('data-zodiac')));
+            });
+        });
+
+        // Tambahin audio
+        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3'); // Ganti URL lagu sesuai kebutuhan, pake lagu klasik instrumental buat Virgo
+        audio.loop = true;
+        audio.volume = 0.5; // Volume rendah biar nggak ganggu
+
+        // Ambil elemen .virgo-card
+        const virgoCard = document.querySelector('.virgo-card');
+        let isPlaying = false;
+
+        // Fungsi buat toggle play/pause
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                virgoCard.style.background = 'var(--virgo-primary)';
+                virgoCard.querySelector('h1').textContent = 'Virgo (Paused)';
+            } else {
+                audio.play();
+                virgoCard.style.background = 'linear-gradient(135deg, #8b7d6b, #665533)';
+                virgoCard.querySelector('h1').textContent = 'Virgo (Playing)';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Tambahin event listener ke .virgo-card
+        virgoCard.addEventListener('click', toggleAudio);
+
+        // Feedback visual awal
+        virgoCard.style.cursor = 'pointer';
+        virgoCard.title = 'Klik untuk Play/Pause lagu Virgo!';
+    </script>
+</body>
+</html>
