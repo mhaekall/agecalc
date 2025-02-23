@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis mendalam tentang shio Tikus: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="shio tikus, astrologi Tionghoa, elemen, kepribadian tikus, wawasan eksklusif">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Shio Tikus - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang shio Tikus: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/rat-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/shio/tikus">
+    <title>Shio Tikus - AgeCalc</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --rat-primary: #d4a017; /* Kuning emas untuk Tikus */
+            --rat-secondary: #ffffff;
+            --rat-accent: #ffd700;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(212, 160, 23, 0.4);
+            --neon-glow: 0 0 15px rgba(212, 160, 23, 0.8), 0 0 30px rgba(212, 160, 23, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .shio-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--rat-primary);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--rat-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--rat-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .shio-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .rat-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--rat-primary);
+        }
+
+        .rat-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .rat-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--rat-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .rat-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .rat-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--rat-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .rat-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .rat-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--rat-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .rat-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .rat-card .years-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--rat-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elemen Switcher */
+        .element-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 0.0rem;
+            margin: 0rem auto;
+            max-width: 1900px;
+            padding: 0rem;
+            overflow-x: auto;
+        }
+
+        .element-option {
+            padding: 0.1rem;
+            background: var(--card-base);
+            border: 0.8px solid var(--rat-primary);
+            border-radius: 20px;
+            color: var(--text-light);
+            font-weight: 900;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.1rem;
+        }
+
+        .element-option:hover {
+            background: var(--rat-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-option.active {
+            background: var(--rat-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-icon {
+            font-size: 0.1rem; /* Ukuran ikon lebih kecil */
+        }
+
+        .shio-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .shio-info {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .shio-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(212, 160, 23, 0.2);
+        }
+
+        .shio-info h2 {
+            color: var(--rat-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .shio-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--rat-accent);
+        }
+
+        .shio-info p {
+            font-size: 1.1rem;
+        }
+
+        .shio-info ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .shio-info ul li {
+            margin: 0.8rem 0;
+            position: relative;
+        }
+
+        .shio-info ul li::before {
+            content: '🐀';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--rat-primary);
+            font-size: 1.2rem;
+        }
+
+        .shio-footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
+            color: var(--text-light);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsiv untuk Mobile */
+        @media (max-width: 768px) {
+            .rat-card {
+                height: 280px;
+                padding: 2rem;
+            }
+            .rat-card h1 { font-size: 2rem; }
+            .rat-card .logo-circle { width: 100px; height: 100px; }
+            .rat-card .logo-symbol { font-size: 2.5rem; }
+            .rat-card .text-section { margin-top: 120px; }
+
+            .element-option { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .element-icon { font-size: 0.8rem; }
+            .shio-info h2 { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 576px) {
+            .shio-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .rat-card { height: 260px; padding: 1.5rem; }
+            .rat-card h1 { font-size: 1.8rem; }
+            .rat-card .logo-circle { width: 80px; height: 80px; }
+            .rat-card .logo-symbol { font-size: 2rem; }
+            .rat-card .text-section { margin-top: 100px; }
+
+            .element-option { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+            .element-icon { font-size: 0.7rem; }
+            .shio-info h2 { font-size: 1.4rem; }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+
+        .loading-overlay span {
+            color: var(--rat-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: var(--neon-glow);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay"><span>Kekuatan Tikus Sedang Muncul...</span></div>
+    <nav class="shio-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <header class="shio-header">
+        <div class="rat-card">
+            <div class="card-content">
+                <h1>Tikus</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐀</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element" id="yearsElement">1948, 1960, 1972, 1984, 1996, 2008, 2020 | Api</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="element-switcher">
+        <div class="element-option active" data-element="Api"><span class="element-icon">🔥</span> Api</div>
+        <div class="element-option" data-element="Kayu"><span class="element-icon">🌳</span> Kayu</div>
+        <div class="element-option" data-element="Air"><span class="element-icon">💧</span> Air</div>
+        <div class="element-option" data-element="Logam"><span class="element-icon">⚙️</span> Logam</div>
+        <div class="element-option" data-element="Tanah"><span class="element-icon">⛰️</span> Tanah</div>
+    </div>
+
+    <main class="shio-content" id="shioContent">
+        <section class="shio-info fade-in">
+            <h2>Elemen</h2>
+            <p id="elementDesc">Tikus Api penuh semangat, berani mengambil risiko, dan selalu mencari peluang baru dengan energi yang membara.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kepribadian</h2>
+            <p id="personalityDesc">Cerdas, ambisius, dan penuh inisiatif. Tikus Api suka memimpin dan sering menjadi pusat perhatian karena pesonanya yang dinamis.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kekuatan Strategis</h2>
+            <ul id="strengthsList">
+                <li><strong>Pemimpin Alami:</strong> Mampu menggerakkan orang lain.</li>
+                <li><strong>Kreatif:</strong> Ide-ide segar selalu muncul.</li>
+                <li><strong>Berani:</strong> Tidak takut menghadapi tantangan.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Risiko Tersembunyi</h2>
+            <ul id="risksList">
+                <li><strong>Terlalu Agresif:</strong> Bisa memicu konflik.</li>
+                <li><strong>Impulsif:</strong> Kurang perhitungan dalam keputusan.</li>
+                <li><strong>Ego Tinggi:</strong> Sulit menerima kritik.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kecocokan Hubungan</h2>
+            <p id="compatibilityText">Tikus Api cocok dengan:</p>
+            <ul id="compatibilityList">
+                <li><strong>Naga Api 🐉:</strong> Kedua shio ini penuh energi dan saling mendukung dalam ambisi besar.</li>
+                <li><strong>Monyet Logam 🐒:</strong> Kecerdasan dan ketangguhan menciptakan hubungan yang harmonis.</li>
+                <li><strong>Kerbau Tanah 🐂:</strong> Stabilitas Kerbau melengkapi semangat Tikus.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Karier & Keuangan</h2>
+            <p id="careerDesc">Tikus Api unggul di bidang yang membutuhkan kreativitas dan kepemimpinan, seperti seni atau bisnis. Keuangan perlu dijaga dari pengeluaran berlebihan.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Dinamika Cinta</h2>
+            <p id="loveDesc">Penuh gairah dan setia, Tikus Api mencari pasangan yang bisa mengimbangi energinya dan memberikan tantangan.</p>
+        </section>
+    </main>
+
+    <footer class="shio-footer">
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const elementData = {
+            "Api": {
+                years: "1948, 1960, 1972, 1984, 1996, 2008, 2020",
+                elementDesc: "Tikus Api penuh semangat, berani mengambil risiko, dan selalu mencari peluang baru dengan energi yang membara.",
+                personalityDesc: "Cerdas, ambisius, dan penuh inisiatif. Tikus Api suka memimpin dan sering menjadi pusat perhatian karena pesonanya yang dinamis.",
+                strengths: [
+                    "<strong>Pemimpin Alami:</strong> Mampu menggerakkan orang lain.",
+                    "<strong>Kreatif:</strong> Ide-ide segar selalu muncul.",
+                    "<strong>Berani:</strong> Tidak takut menghadapi tantangan."
+                ],
+                risks: [
+                    "<strong>Terlalu Agresif:</strong> Bisa memicu konflik.",
+                    "<strong>Impulsif:</strong> Kurang perhitungan dalam keputusan.",
+                    "<strong>Ego Tinggi:</strong> Sulit menerima kritik."
+                ],
+                compatibility: [
+                    "<strong>Naga Api 🐉:</strong> Kedua shio ini penuh energi dan saling mendukung dalam ambisi besar.",
+                    "<strong>Monyet Logam 🐒:</strong> Kecerdasan dan ketangguhan menciptakan hubungan yang harmonis.",
+                    "<strong>Kerbau Tanah 🐂:</strong> Stabilitas Kerbau melengkapi semangat Tikus."
+                ],
+                careerDesc: "Tikus Api unggul di bidang yang membutuhkan kreativitas dan kepemimpinan, seperti seni atau bisnis. Keuangan perlu dijaga dari pengeluaran berlebihan.",
+                loveDesc: "Penuh gairah dan setia, Tikus Api mencari pasangan yang bisa mengimbangi energinya dan memberikan tantangan."
+            },
+            "Kayu": {
+                years: "1984, 1996, 2008, 2020, 2032",
+                elementDesc: "Tikus Kayu penuh vitalitas, fleksibel, dan selalu berkembang seperti pohon yang kokoh.",
+                personalityDesc: "Ramah, inovatif, dan suka bekerja sama. Tikus Kayu dikenal mudah beradaptasi dan penuh ide baru.",
+                strengths: [
+                    "<strong>Kolaboratif:</strong> Hebat dalam kerja tim.",
+                    "<strong>Inovatif:</strong> Selalu punya solusi kreatif.",
+                    "<strong>Fleksibel:</strong> Mudah menyesuaikan diri."
+                ],
+                risks: [
+                    "<strong>Kurang Fokus:</strong> Terlalu banyak ide bisa membingungkan.",
+                    "<strong>Terlalu Percaya:</strong> Bisa dimanfaatkan orang lain.",
+                    "<strong>Ketergantungan:</strong> Kadang kurang mandiri."
+                ],
+                compatibility: [
+                    "<strong>Kelinci Kayu 🐇:</strong> Sifat ramah dan fleksibel membuat hubungan ini hangat.",
+                    "<strong>Kuda Api 🐎:</strong> Energi Kuda melengkapi kreativitas Tikus.",
+                    "<strong>Anjing Tanah 🐕:</strong> Kesetiaan Anjing cocok dengan sifat suportif Tikus."
+                ],
+                careerDesc: "Tikus Kayu cocok di bidang yang membutuhkan kerja sama, seperti pendidikan atau desain. Keuangan stabil jika terencana.",
+                loveDesc: "Hangat dan suportif, Tikus Kayu mencari pasangan yang bisa tumbuh bersamanya."
+            },
+            "Air": {
+                years: "1972, 1984, 1996, 2008, 2020",
+                elementDesc: "Tikus Air tenang, intuitif, dan mengalir menyesuaikan situasi seperti air yang jernih.",
+                personalityDesc: "Pemikir dalam, sensitif, dan cerdas secara emosional. Tikus Air sering jadi penutup yang bijaksana.",
+                strengths: [
+                    "<strong>Intuitif:</strong> Bisa membaca situasi dengan baik.",
+                    "<strong>Empati:</strong> Peduli pada orang lain.",
+                    "<strong>Tenang:</strong> Tetap stabil di bawah tekanan."
+                ],
+                risks: [
+                    "<strong>Terlalu Sensitif:</strong> Mudah tersinggung.",
+                    "<strong>Pendiam:</strong> Sulit mengekspresikan diri.",
+                    "<strong>Pasif:</strong> Kurang inisiatif saat dibutuhkan."
+                ],
+                compatibility: [
+                    "<strong>Ular Air 🐍:</strong> Keduanya intuitif dan saling memahami secara mendalam.",
+                    "<strong>Babi Air 🐖:</strong> Sifat lembut Babi cocok dengan empati Tikus.",
+                    "<strong>Monyet Logam 🐒:</strong> Kecerdasan Monyet melengkapi ketenangan Tikus."
+                ],
+                careerDesc: "Tikus Air cocok untuk karier yang membutuhkan analisis mendalam, seperti psikologi atau penelitian. Keuangan aman dengan perencanaan.",
+                loveDesc: "Setia dan penuh perhatian, Tikus Air mencari pasangan yang memahami sifatnya yang mendalam."
+            },
+            "Logam": {
+                years: "1960, 1972, 1984, 1996, 2008",
+                elementDesc: "Tikus Logam kuat, teguh, dan penuh ketahanan seperti besi yang tak mudah patah.",
+                personalityDesc: "Displin, ambisius, dan fokus pada tujuan. Tikus Logam dikenal gigih dan tegas.",
+                strengths: [
+                    "<strong>Gigih:</strong> Tidak mudah menyerah.",
+                    "<strong>Disiplin:</strong> Terorganisir dan terarah.",
+                    "<strong>Tegas:</strong> Jelas dalam mengambil keputusan."
+                ],
+                risks: [
+                    "<strong>Keras Kepala:</strong> Sulit berkompromi.",
+                    "<strong>Terlalu Kaku:</strong> Kurang fleksibel.",
+                    "<strong>Dominan:</strong> Bisa mengintimidasi orang lain."
+                ],
+                compatibility: [
+                    "<strong>Harimau Logam 🐅:</strong> Keteguhan keduanya menciptakan ikatan yang kuat.",
+                    "<strong>Kerbau Tanah 🐂:</strong> Stabilitas Kerbau cocok dengan disiplin Tikus.",
+                    "<strong>Ayam Logam 🐓:</strong> Keduanya terorganisir dan saling mendukung."
+                ],
+                careerDesc: "Tikus Logam unggul di bidang teknik atau manajemen. Keuangan kuat jika ada target jelas.",
+                loveDesc: "Loyal dan protektif, Tikus Logam mencari pasangan yang menghargai ketegasannya."
+            },
+            "Tanah": {
+                years: "1948, 1960, 1972, 1984, 1996",
+                elementDesc: "Tikus Tanah stabil, praktis, dan menjadi fondasi kuat seperti tanah yang subur.",
+                personalityDesc: "Realistis, sabar, dan dapat diandalkan. Tikus Tanah suka membangun sesuatu yang tahan lama.",
+                strengths: [
+                    "<strong>Stabil:</strong> Dapat diandalkan dalam krisis.",
+                    "<strong>Praktis:</strong> Solusi selalu masuk akal.",
+                    "<strong>Sabar:</strong> Tidak terburu-buru dalam keputusan."
+                ],
+                risks: [
+                    "<strong>Terlalu Hati-hati:</strong> Bisa kehilangan peluang.",
+                    "<strong>Konservatif:</strong> Kurang suka perubahan.",
+                    "<strong>Monoton:</strong> Kadang membosankan."
+                ],
+                compatibility: [
+                    "<strong>Kambing Tanah 🐐:</strong> Keduanya stabil dan saling memberikan rasa aman.",
+                    "<strong>Naga Kayu 🐉:</strong> Kreativitas Naga melengkapi praktikalitas Tikus.",
+                    "<strong>Anjing Tanah 🐕:</strong> Kesetiaan dan stabilitas menciptakan harmoni."
+                ],
+                careerDesc: "Tikus Tanah cocok di bidang pertanian atau administrasi. Keuangan stabil dengan pendekatan hemat.",
+                loveDesc: "Setia dan tenang, Tikus Tanah mencari pasangan yang menghargai kestabilan."
+            }
+        };
+
+        function updateContent(element) {
+            const data = elementData[element];
+            document.getElementById('yearsElement').textContent = `${data.years} | ${element}`;
+            document.getElementById('elementDesc').textContent = data.elementDesc;
+            document.getElementById('personalityDesc').textContent = data.personalityDesc;
+            document.getElementById('strengthsList').innerHTML = data.strengths.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('risksList').innerHTML = data.risks.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('compatibilityText').textContent = `Tikus ${element} cocok dengan:`;
+            document.getElementById('compatibilityList').innerHTML = data.compatibility.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('careerDesc').textContent = data.careerDesc;
+            document.getElementById('loveDesc').textContent = data.loveDesc;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.element-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    updateContent(option.getAttribute('data-element'));
+                });
+            });
+            updateContent('Api'); // Default ke Api
+        });
+    </script>
+</body>
+</html>
