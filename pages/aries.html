@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jelajahi dunia zodiak Aries: kepribadian, kekuatan, prediksi harian, dan lebih banyak lagi di AgeCalc.">
-    <meta name="keywords" content="zodiak aries, astrologi, elemen api, kepribadian aries, prediksi harian">
+    <meta name="description" content="Analisis mendalam tentang zodiak Aries: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="zodiak aries, astrologi, elemen api, kepribadian aries, wawasan eksklusif">
     <meta name="author" content="Your Name">
     <meta property="og:title" content="Zodiak Aries - AgeCalc">
-    <meta property="og:description" content="Pelajari semua tentang zodiak Aries: kepribadian, kompatibilitas, dan prediksi harian di AgeCalc.">
+    <meta property="og:description" content="Wawasan eksklusif tentang zodiak Aries: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
     <meta property="og:image" content="/images/aries-symbol.png">
     <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/zodiac/aries">
     <title>Zodiak Aries - AgeCalc</title>
@@ -16,8 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Confetti untuk Animasi -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 
     <style>
         /* Reset & Base Styles */
@@ -27,129 +25,169 @@
             box-sizing: border-box;
         }
 
-        /* Custom Properties untuk Tema Aries */
         :root {
-            --aries-primary: #ff5733; /* Merah-oranye khas Api */
-            --aries-secondary: #ff8c66; /* Oranye lembut */
-            --aries-accent: #d32f2f; /* Merah tua */
-            --text-light: #ffffff;
-            --text-dark: #2c3e50;
-            --bg-light: #fff5f0;
-            --bg-dark: #1a0000;
-            --shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --aries-primary: #ff0000;
+            --aries-secondary: #ffffff;
+            --aries-accent: #ff3333;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(255, 0, 0, 0.4);
+            --neon-glow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5);
             --transition: all 0.3s ease;
+            --border-radius: 15px;
         }
 
-        /* Body */
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
+            background: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Animasi Latar Belakang */
-        .fire-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Navigasi */
         .zodiac-nav {
-            background: var(--aries-primary);
-            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
 
         .nav-logo {
-            color: var(--text-light);
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
+            color: var(--aries-primary);
             text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .nav-logo:hover {
-            opacity: 0.9;
+            text-shadow: var(--glow);
         }
 
         .nav-back {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            background: var(--aries-secondary);
-            border-radius: 20px;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--aries-primary);
+            border-radius: 25px;
+            font-weight: 600;
             transition: var(--transition);
         }
 
         .nav-back:hover {
-            background: var(--aries-accent);
+            background: var(--aries-primary);
+            color: #fff;
+            box-shadow: var(--glow);
         }
 
-        /* Konten Utama */
+        .zodiac-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .aries-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--aries-primary);
+        }
+
+        .aries-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .aries-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--aries-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .aries-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .aries-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--aries-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .aries-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .aries-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--aries-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .aries-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .aries-card .dates-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--aries-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
         .zodiac-content {
             max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        .zodiac-header {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, var(--aries-primary), var(--aries-secondary));
-            color: var(--text-light);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .zodiac-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-            animation: glow 5s infinite;
-        }
-
-        .zodiac-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .zodiac-symbol {
-            font-size: 5rem;
-            margin: 1rem 0;
-            animation: pulse 2s infinite;
-        }
-
-        .zodiac-dates {
-            font-size: 1.3rem;
-            font-style: italic;
-        }
-
-        /* Info Section */
         .zodiac-info {
-            background: #fff;
+            background: var(--card-base);
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 12px;
@@ -159,7 +197,7 @@
 
         .zodiac-info:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(211, 47, 47, 0.3);
+            box-shadow: 0 6px 18px rgba(255, 0, 0, 0.2);
         }
 
         .zodiac-info h2 {
@@ -201,73 +239,160 @@
             font-size: 1.2rem;
         }
 
-        /* Prediksi Harian */
-        .daily-prediction {
-            background: linear-gradient(145deg, #ffebee, #ffcdd2);
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .prediction-text {
-            font-style: italic;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Kalkulator Kecocokan */
+        /* Kalkulator Kecocokan - Card Design */
         .compatibility-calculator {
-            background: #fff;
+            background: var(--card-base);
             padding: 2rem;
-            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
+            position: relative;
         }
 
-        .compatibility-calculator select {
-            width: 100%;
-            padding: 0.8rem;
+        .compatibility-calculator h2 {
+            color: var(--aries-primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .zodiac-options {
+            max-height: 300px;
+            overflow-y: auto;
             margin: 1rem 0;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--aries-primary);
+            border-radius: var(--border-radius);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .zodiac-option {
+            position: relative;
+            padding: 1.5rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            background: var(--card-base);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zodiac-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(255, 0, 0, 0.2);
+        }
+
+        .zodiac-option .logo-circle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--aries-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .zodiac-option .logo-symbol {
+            font-size: 1.8rem;
+            color: var(--bg-dark);
+        }
+
+        .zodiac-option .border-line {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: var(--aries-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 2px;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .zodiac-option .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 70px;
+        }
+
+        .zodiac-option h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--aries-primary);
+            text-transform: uppercase;
+        }
+
+        .zodiac-option .element {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .zodiac-option.selected {
             border: 2px solid var(--aries-primary);
-            border-radius: 8px;
-            font-size: 1.1rem;
+            background: var(--bg-dark);
+        }
+
+        .compatibility-calculator button {
+            padding: 0.8rem 1.5rem;
+            background: var(--aries-primary);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .compatibility-calculator button:hover {
+            background: var(--aries-accent);
+            box-shadow: var(--glow);
         }
 
         .compatibility-result {
             margin-top: 1rem;
             padding: 1rem;
-            background: var(--aries-secondary);
+            background: var(--card-base);
+            border: 1px solid var(--aries-primary);
+            border-radius: 5px;
             color: var(--text-light);
-            border-radius: 8px;
             display: none;
+            animation: fadeIn 0.5s ease forwards;
         }
 
-        /* Footer */
         .zodiac-footer {
             text-align: center;
             padding: 1.5rem;
-            background: var(--aries-primary);
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
             color: var(--text-light);
             margin-top: 2rem;
+            box-shadow: var(--shadow);
         }
 
         .zodiac-footer a {
-            color: var(--aries-secondary);
+            color: var(--aries-primary);
             text-decoration: none;
             margin-left: 1rem;
             font-weight: 500;
         }
 
         .zodiac-footer a:hover {
-            color: var(--text-light);
+            color: var(--aries-accent);
         }
 
-        /* Animasi */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes glow {
+        @keyframes borderSpin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -281,248 +406,376 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Responsif */
-        @media (max-width: 576px) {
-            .zodiac-nav {
-                padding: 1rem;
-                flex-direction: column;
-                gap: 1rem;
+        @media (max-width: 768px) {
+            .aries-card {
+                height: 280px;
+                padding: 2rem;
             }
+            .aries-card h1 { font-size: 2rem; }
+            .aries-card .logo-circle { width: 100px; height: 100px; }
+            .aries-card .logo-symbol { font-size: 2.5rem; }
+            .aries-card .text-section { margin-top: 120px; }
 
-            .zodiac-header h1 {
-                font-size: 2rem;
-            }
-
-            .zodiac-symbol {
-                font-size: 3.5rem;
-            }
-
-            .zodiac-info {
-                padding: 1.5rem;
-            }
-
-            .zodiac-info h2 {
-                font-size: 1.6rem;
-            }
-
-            .zodiac-info p,
-            .zodiac-info ul li {
-                font-size: 1rem;
-            }
+            .zodiac-option { padding: 1rem; }
+            .zodiac-option .logo-circle { width: 50px; height: 50px; }
+            .zodiac-option .logo-symbol { font-size: 1.5rem; }
+            .zodiac-option .text-section { margin-top: 60px; }
+            .zodiac-option h3 { font-size: 1rem; }
         }
+
+        @media (max-width: 576px) {
+            .zodiac-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .aries-card { height: 260px; padding: 1.5rem; }
+            .aries-card h1 { font-size: 1.8rem; }
+            .aries-card .logo-circle { width: 80px; height: 80px; }
+            .aries-card .logo-symbol { font-size: 2rem; }
+            .aries-card .text-section { margin-top: 100px; }
+            .zodiac-info h2 { font-size: 1.6rem; }
+
+            .zodiac-option { padding: 0.8rem; }
+            .zodiac-option .logo-circle { width: 30px; height: 30px; }
+            .zodiac-option .logo-symbol { font-size: 0.95rem; }
+            .zodiac-option .text-section { margin-top: 89px; }
+            .zodiac-option h3 { font-size: 2rem; }
+        }
+    /* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 2s forwards;
+}
+
+.loading-overlay span {
+    color: var(--aries-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: var(--neon-glow);
+    animation: pulse 1s infinite;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+    .aries-card:active {
+    transform: scale(0.98); /* Efek "klik" ringan */
+}
     </style>
 </head>
 <body>
-    <!-- Partikel Api di Latar Belakang -->
-    <canvas class="fire-particles"></canvas>
-
-    <!-- Navigasi -->
+    <div class="loading-overlay"><span>Aries Power Loading...</span></div>
     <nav class="zodiac-nav">
         <a href="/" class="nav-logo">AgeCalc</a>
-        <a href="/" class="nav-back">Kembali ke Kalkulator</a>
+        <a href="/" class="nav-back">Kembali</a>
     </nav>
 
-    <!-- Konten Utama -->
-    <main class="zodiac-content">
-        <header class="zodiac-header">
-            <h1>Zodiak Aries</h1>
-            <div class="zodiac-symbol">♈</div>
-            <p class="zodiac-dates">21 Maret - 19 April</p>
-        </header>
+    <header class="zodiac-header">
+        <div class="aries-card">
+            <div class="card-content">
+                <h1>Aries</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">♈</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="dates-element">21 Maret - 19 April | 🔥</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <main class="zodiac-content">
         <section class="zodiac-info fade-in">
             <h2>Elemen: Api</h2>
-            <p>Aries adalah zodiak pertama dalam astrologi Barat, dipenuhi energi elemen Api yang melambangkan semangat, keberanian, dan transformasi. Mereka adalah percikan awal yang memulai segala sesuatu, penuh dengan ambisi dan dorongan untuk bertindak.</p>
+            <p>Aries, sebagai zodiak pertama dalam astrologi Barat, diatur oleh elemen api yang melambangkan semangat, keberanian, dan inisiatif. Mereka sering menjadi penggerak awal dalam berbagai situasi.</p>
         </section>
 
         <section class="zodiac-info fade-in">
-            <h2>Kepribadian Aries</h2>
-            <p>Aries dikenal sebagai petualang sejati dengan kepribadian yang berani, energetik, dan optimis. Mereka adalah pemimpin alami yang tidak ragu mengambil risiko demi impian mereka. Jiwa kompetitif mereka mendorong mereka untuk selalu menjadi yang pertama dalam segala hal.</p>
-            <p>Mereka juga memiliki sisi spontan yang membuat hidup bersama mereka penuh kejutan. Namun, sifat independen ini kadang membuat mereka sulit berkompromi.</p>
+            <h2>Kepribadian</h2>
+            <p>Aries dikenal dengan sifat kepemimpinan yang kuat dan pendekatan langsung terhadap tantangan. Mereka energik, berani, dan sering bertindak cepat, meskipun kadang tanpa perencanaan mendalam.</p>
         </section>
 
         <section class="zodiac-info fade-in">
-            <h2>Kekuatan</h2>
+            <h2>Kekuatan Strategis</h2>
             <ul>
-                <li><strong>Kepemimpinan:</strong> Aries sering menjadi pelopor dan penggerak utama dalam kelompok.</li>
-                <li><strong>Semangat Tinggi:</strong> Energi mereka tak pernah padam, selalu siap menghadapi tantangan.</li>
-                <li><strong>Percaya Diri:</strong> Keyakinan mereka menular dan menginspirasi orang lain.</li>
-                <li><strong>Kreativitas:</strong> Mereka inovatif dalam mencari solusi baru.</li>
+                <li><strong>Visioner:</strong> Cenderung menjadi pelopor dalam ide-ide baru.</li>
+                <li><strong>Adaptabilitas:</strong> Cepat menyesuaikan diri dengan perubahan.</li>
+                <li><strong>Resiliensi:</strong> Kuat menghadapi tekanan dan tantangan.</li>
             </ul>
         </section>
 
         <section class="zodiac-info fade-in">
-            <h2>Kelemahan</h2>
+            <h2>Risiko Tersembunyi</h2>
             <ul>
-                <li><strong>Tidak Sabaran:</strong> Aries ingin hasil instan dan sering terburu-buru.</li>
-                <li><strong>Impulsif:</strong> Keputusan cepat bisa membawa mereka pada masalah.</li>
-                <li><strong>Temperamental:</strong> Emosi mereka bisa membakar seperti api jika tidak dikendalikan.</li>
-                <li><strong>Egois:</strong> Kadang terlalu fokus pada diri sendiri.</li>
+                <li><strong>Impulsivitas:</strong> Tindakan spontan bisa memicu kesalahan.</li>
+                <li><strong>Ketidaksabaran:</strong> Sulit menangani proses yang lambat.</li>
+                <li><strong>Dominasi:</strong> Kadang mengabaikan kolaborasi tim.</li>
             </ul>
         </section>
 
-        <section class="zodiac-info fade-in">
-            <h2>Kecocokan</h2>
-            <p>Aries cocok dengan zodiak seperti <strong>Leo</strong> (sesama Api yang penuh gairah), <strong>Sagittarius</strong> (petualang sejati), dan <strong>Gemini</strong> (pintar dan fleksibel). Mereka kurang cocok dengan <strong>Capricorn</strong> yang lambat dan terlalu terstruktur.</p>
-            <p>Hubungan dengan Aries membutuhkan pasangan yang bisa mengimbangi energi mereka tanpa merasa terintimidasi.</p>
-        </section>
-
-        <section class="zodiac-info zodiac-extra fade-in">
-            <h2>Fakta Menarik</h2>
-            <ul>
-                <li><strong>Planet Penguasa:</strong> Mars, simbol kekuatan, perang, dan energi maskulin.</li>
-                <li><strong>Warna Keberuntungan:</strong> Merah, oranye, melambangkan gairah dan vitalitas.</li>
-                <li><strong>Angka Keberuntungan:</strong> 1, 9, 17, mencerminkan awal dan ambisi.</li>
-                <li><strong>Batu Kelahiran:</strong> Berlian (ketahanan) dan ruby (keberanian).</li>
-                <li><strong>Hari Keberuntungan:</strong> Selasa, dipengaruhi Mars.</li>
-                <li><strong>Mitos:</strong> Aries diasosiasikan dengan Domba Emas dalam mitologi Yunani.</li>
-            </ul>
-        </section>
-
-        <section class="zodiac-info zodiac-advice fade-in">
-            <h2>Saran untuk Aries</h2>
-            <p>Manfaatkan energi Anda untuk memulai hal-hal baru, tetapi latih kesabaran agar tidak terburu-buru. Dengarkan pendapat orang lain untuk membangun hubungan yang harmonis, dan temukan cara untuk menyalurkan emosi Anda secara positif, seperti olahraga atau seni.</p>
-            <p>Fokus pada keseimbangan antara ambisi pribadi dan kerja sama tim untuk hasil yang lebih baik.</p>
-        </section>
-
-        <section class="zodiac-info daily-prediction fade-in">
-            <h2>Prediksi Harian</h2>
-            <p id="dailyPrediction" class="prediction-text">Klik tombol di bawah untuk melihat prediksi harian Anda!</p>
-            <button onclick="generateDailyPrediction()" class="prediction-btn">Lihat Prediksi</button>
-        </section>
-
-        <section class="zodiac-info compatibility-calculator fade-in">
-            <h2>Kalkulator Kecocokan</h2>
-            <p>Pilih zodiak pasangan Anda untuk melihat seberapa cocok Anda dengan mereka!</p>
-            <select id="partnerZodiac">
-                <option value="">Pilih Zodiak</option>
-                <option value="Aries">Aries</option>
-                <option value="Taurus">Taurus</option>
-                <option value="Gemini">Gemini</option>
-                <option value="Cancer">Cancer</option>
-                <option value="Leo">Leo</option>
-                <option value="Virgo">Virgo</option>
-                <option value="Libra">Libra</option>
-                <option value="Scorpio">Scorpio</option>
-                <option value="Sagittarius">Sagittarius</option>
-                <option value="Capricorn">Capricorn</option>
-                <option value="Aquarius">Aquarius</option>
-                <option value="Pisces">Pisces</option>
-            </select>
-            <button onclick="calculateCompatibility()" class="prediction-btn">Hitung Kecocokan</button>
+        <section class="zodiac-info fade-in compatibility-calculator">
+            <h2>Kecocokan Hubungan</h2>
+            <p>Pilih zodiak untuk melihat kecocokan dengan Aries.</p>
+            <div class="zodiac-options" id="zodiacOptions">
+                <div class="zodiac-option" data-zodiac="Aries">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♈</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Aries</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Taurus">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♉</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Taurus</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Gemini">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♊</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Gemini</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Cancer">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♋</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Cancer</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Leo">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♌</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Leo</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Virgo">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♍</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Virgo</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Libra">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♎</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Libra</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Scorpio">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♏</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Scorpio</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Sagittarius">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♐</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Sagittarius</h3>
+                            <span class="element">Api</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Capricorn">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♑</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Capricorn</h3>
+                            <span class="element">Tanah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Aquarius">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♒</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Aquarius</h3>
+                            <span class="element">Udara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="zodiac-option" data-zodiac="Pisces">
+                    <div class="card-content">
+                        <div class="logo-circle">
+                            <div class="logo-symbol">♓</div>
+                        </div>
+                        <div class="border-line"></div>
+                        <div class="text-section">
+                            <h3>Pisces</h3>
+                            <span class="element">Air</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculateCompatibility()">Hitung Kecocokan</button>
             <div id="compatibilityResult" class="compatibility-result"></div>
         </section>
 
         <section class="zodiac-info fade-in">
-            <h2>Karier dan Keuangan</h2>
-            <p>Aries cocok untuk karier yang membutuhkan keberanian dan inisiatif, seperti wirausaha, militer, atau olahraga. Mereka suka tantangan dan sering menjadi pemimpin dalam proyek besar.</p>
-            <p>Dalam keuangan, Aries cenderung boros karena sifat impulsifnya. Disarankan untuk membuat rencana anggaran agar tabungan mereka aman.</p>
+            <h2>Karier & Keuangan</h2>
+            <p>Aries sering unggul di bidang yang membutuhkan inisiatif, seperti kewirausahaan atau manajemen. Dalam keuangan, mereka perlu mengelola kecenderungan untuk pengeluaran impulsif.</p>
         </section>
 
         <section class="zodiac-info fade-in">
-            <h2>Cinta dan Hubungan</h2>
-            <p>Dalam cinta, Aries penuh gairah dan romantis, tetapi mereka juga membutuhkan pasangan yang bisa mengikuti ritme cepat mereka. Mereka setia jika merasa dihargai, tapi bisa cepat bosan jika hubungan terasa monoton.</p>
-            <p>Tip: Berikan ruang untuk petualangan bersama pasangan Anda.</p>
+            <h2>Dinamika Cinta</h2>
+            <p>Aries membawa semangat dan intensitas dalam hubungan. Mereka setia namun membutuhkan pasangan yang mampu menyeimbangkan energi dan toleransi terhadap sifat dominan mereka.</p>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="zodiac-footer">
-        <p>© 2025 AgeCalc. Semua hak dilindungi.</p>
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
         <a href="/pages/about.html">Tentang Kami</a>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Partikel Api di Latar Belakang
-        const canvas = document.querySelector('.fire-particles');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // Data kecocokan zodiak dengan persentase dan emoji
+        const compatibilityData = {
+            "Aries": { percent: 70, text: "Cukup baik - Hubungan serasi, tapi butuh kompromi 😊" },
+            "Taurus": { percent: 55, text: "Tantangan - Perbedaan ritme, perlu usaha 😕" },
+            "Gemini": { percent: 75, text: "Baik - Fleksibel dan komunikatif 😊" },
+            "Cancer": { percent: 60, text: "Netral - Emosi bisa bentrok, tapi bisa harmonis 😐" },
+            "Leo": { percent: 85, text: "Sangat cocok - Energi api yang selaras 😊" },
+            "Virgo": { percent: 50, text: "Kurang cocok - Ketelitian kontras dengan impulsivitas 😢" },
+            "Libra": { percent: 70, text: "Baik - Keseimbangan melengkapi semangat 😊" },
+            "Scorpio": { percent: 65, text: "Netral - Intensitas bisa kuat atau konflik 😐" },
+            "Sagittarius": { percent: 80, text: "Cocok - Petualangan memperkuat ikatan 😊" },
+            "Capricorn": { percent: 45, text: "Kurang cocok - Pendekatan berbeda sulit disatukan 😢" },
+            "Aquarius": { percent: 70, text: "Baik - Inovasi cocok dengan energi Aries 😊" },
+            "Pisces": { percent: 60, text: "Netral - Sensitivitas kontras dengan aksi, perlu sabar 😐" }
+        };
 
-        const particles = [];
-        function createParticle() {
-            return {
-                x: Math.random() * canvas.width,
-                y: canvas.height + Math.random() * 50,
-                size: Math.random() * 5 + 2,
-                speed: Math.random() * 2 + 1,
-                color: `hsl(${Math.random() * 30 + 10}, 100%, 50%)`
-            };
+        let selectedZodiac = null;
+
+        // Fungsi untuk pilih zodiak
+        function selectZodiac(zodiac) {
+            selectedZodiac = zodiac;
+            const options = document.querySelectorAll('.zodiac-option');
+            options.forEach(option => option.classList.remove('selected'));
+            document.querySelector(`.zodiac-option[data-zodiac="${zodiac}"]`).classList.add('selected');
         }
 
-        for (let i = 0; i < 50; i++) {
-            particles.push(createParticle());
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((p, i) => {
-                ctx.fillStyle = p.color;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-
-                p.y -= p.speed;
-                p.x += Math.sin(p.y * 0.02) * 0.5;
-
-                if (p.y < -p.size) {
-                    particles[i] = createParticle();
-                }
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // Prediksi Harian
-        function generateDailyPrediction() {
-            const predictions = [
-                "Hari ini penuh energi untuk memulai sesuatu yang baru. Manfaatkan semangatmu!",
-                "Keberanianmu akan membuahkan hasil di tempat kerja hari ini.",
-                "Hati-hati dengan emosimu, ada risiko konflik kecil dengan teman.",
-                "Cinta akan bersinar terang hari ini jika kamu terbuka pada pasangan.",
-                "Keuanganmu stabil, tapi hindari pembelian impulsif.",
-                "Petualangan kecil hari ini akan membawa kebahagiaan."
-            ];
-            const randomPrediction = predictions[Math.floor(Math.random() * predictions.length)];
-            document.getElementById('dailyPrediction').textContent = randomPrediction;
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#ff5733', '#ff8c66', '#d32f2f']
-            });
-        }
-
-        // Kalkulator Kecocokan
+        // Fungsi untuk hitung kecocokan
         function calculateCompatibility() {
-            const partnerZodiac = document.getElementById('partnerZodiac').value;
             const resultDiv = document.getElementById('compatibilityResult');
-            if (!partnerZodiac) {
-                resultDiv.textContent = "Pilih zodiak terlebih dahulu!";
+            resultDiv.style.display = 'none';
+            resultDiv.textContent = '';
+
+            if (!selectedZodiac) {
+                resultDiv.textContent = "Silakan pilih zodiak terlebih dahulu.";
                 resultDiv.style.display = "block";
                 return;
             }
 
-            const compatibility = {
-                "Leo": "90% - Keren! Kalian sama-sama penuh gairah dan energi.",
-                "Sagittarius": "85% - Petualangan kalian tak akan pernah membosankan!",
-                "Gemini": "80% - Kecerdasan mereka melengkapi semangatmu.",
-                "Aries": "75% - Kalian serasi, tapi hati-hati dengan ego masing-masing.",
-                "Taurus": "50% - Tantangan besar karena ritme kalian berbeda.",
-                "Capricorn": "40% - Sulit cocok karena Capricorn terlalu lambat untukmu."
-            };
-
-            const result = compatibility[partnerZodiac] || "60% - Cocok secara umum, tapi butuh usaha lebih.";
-            resultDiv.textContent = result;
+            const compatibility = compatibilityData[selectedZodiac] || { percent: 60, text: "Netral - Kecocokan biasa saja 😐" };
+            resultDiv.textContent = `${compatibility.percent}% - ${compatibility.text}`;
             resultDiv.style.display = "block";
-            resultDiv.classList.add('fade-in');
-            confetti({
-                particleCount: 50,
-                spread: 50,
-                colors: ['#ff5733', '#ff8c66']
-            });
         }
+
+        // Event listener untuk zodiak options
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.zodiac-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => selectZodiac(option.getAttribute('data-zodiac')));
+            });
+        });
+    // Tambahin audio
+const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // Ganti URL lagu sesuai kebutuhan
+audio.loop = true;
+audio.volume = 0.99; // Volume rendah biar nggak ganggu
+
+// Ambil elemen .aries-card
+const ariesCard = document.querySelector('.aries-card');
+let isPlaying = false;
+
+// Fungsi buat toggle play/pause
+function toggleAudio() {
+    if (isPlaying) {
+        audio.pause();
+        ariesCard.style.background = 'var(--aries-primary)'; // Warna default pas pause
+        ariesCard.querySelector('h1').textContent = 'Aries (Paused)';
+    } else {
+        audio.play();
+        ariesCard.style.background = 'linear-gradient(135deg, #ff0000, #ff3333)'; // Efek pas play
+        ariesCard.querySelector('h1').textContent = 'Aries (Playing)';
+    }
+    isPlaying = !isPlaying;
+}
+
+// Tambahin event listener ke .aries-card
+ariesCard.addEventListener('click', toggleAudio);
+
+// Feedback visual awal
+ariesCard.style.cursor = 'pointer'; // Bikin kursor jadi pointer biar keliatan bisa diklik
+ariesCard.title = 'Klik untuk Play/Pause lagu Aries!'; // Tooltip buat kasih hint
     </script>
 </body>
 </html>
