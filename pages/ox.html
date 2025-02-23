@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analisis mendalam tentang shio Kerbau: kepribadian, strategi karier, dan wawasan eksklusif di AgeCalc.">
+    <meta name="keywords" content="shio kerbau, astrologi Tionghoa, elemen, kepribadian kerbau, wawasan eksklusif">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Shio Kerbau - AgeCalc">
+    <meta property="og:description" content="Wawasan eksklusif tentang shio Kerbau: kepribadian, kompatibilitas, dan strategi sukses di AgeCalc.">
+    <meta property="og:image" content="/images/ox-symbol.png">
+    <meta property="og:url" content="https://agecalcbeta.vercel.app/pages/shio/kerbau">
+    <title>Shio Kerbau - AgeCalc</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --card-base: #1a1a1a;
+            --text-light: #d9d9e6;
+            --ox-primary: #4a7045; /* Hijau tua untuk Kerbau */
+            --ox-secondary: #ffffff;
+            --ox-accent: #6b9c66;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            --glow: 0 0 12px rgba(74, 112, 69, 0.4);
+            --neon-glow: 0 0 15px rgba(74, 112, 69, 0.8), 0 0 30px rgba(74, 112, 69, 0.5);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .shio-nav {
+            background: linear-gradient(135deg, #000000, #2a2a4d);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--ox-primary);
+            text-decoration: none;
+            text-shadow: var(--glow);
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            border: 2px solid var(--ox-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            background: var(--ox-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .shio-header {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .ox-card {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: var(--ox-primary);
+        }
+
+        .ox-card .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .ox-card h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ox-secondary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .ox-card .logo-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ox-card .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 5px solid var(--ox-secondary);
+            border-radius: 50%;
+            animation: borderSpin 4s linear infinite;
+        }
+
+        .ox-card .logo-symbol {
+            font-size: 3rem;
+            color: var(--bg-dark);
+        }
+
+        .ox-card .border-line {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: var(--ox-secondary);
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .ox-card .text-section {
+            position: relative;
+            z-index: 3;
+            margin-top: 140px;
+        }
+
+        .ox-card .years-element {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ox-secondary);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elemen Switcher Vertikal */
+        .element-switcher {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem auto;
+            max-width: 200px;
+            padding: 0 1rem;
+        }
+
+        .element-option {
+            padding: 0.5rem 1rem;
+            background: var(--card-base);
+            border: 2px solid var(--ox-primary);
+            border-radius: 20px;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .element-option:hover {
+            background: var(--ox-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-option.active {
+            background: var(--ox-primary);
+            color: #fff;
+            box-shadow: var(--glow);
+        }
+
+        .element-icon {
+            font-size: 0.8rem;
+        }
+
+        .shio-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .shio-info {
+            background: var(--card-base);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .shio-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(74, 112, 69, 0.2);
+        }
+
+        .shio-info h2 {
+            color: var(--ox-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .shio-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--ox-accent);
+        }
+
+        .shio-info p {
+            font-size: 1.1rem;
+        }
+
+        .shio-info ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .shio-info ul li {
+            margin: 0.8rem 0;
+            position: relative;
+        }
+
+        .shio-info ul li::before {
+            content: '🐂';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--ox-primary);
+            font-size: 1.2rem;
+        }
+
+        .shio-footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a4d);
+            color: var(--text-light);
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsiv untuk Mobile */
+        @media (max-width: 768px) {
+            .ox-card {
+                height: 280px;
+                padding: 2rem;
+            }
+            .ox-card h1 { font-size: 2rem; }
+            .ox-card .logo-circle { width: 100px; height: 100px; }
+            .ox-card .logo-symbol { font-size: 2.5rem; }
+            .ox-card .text-section { margin-top: 120px; }
+
+            .element-option { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+            .element-icon { font-size: 0.7rem; }
+            .shio-info h2 { font-size: 1.6rem; }
+            .element-switcher { max-width: 150px; }
+        }
+
+        @media (max-width: 576px) {
+            .shio-nav { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .ox-card { height: 260px; padding: 1.5rem; }
+            .ox-card h1 { font-size: 1.8rem; }
+            .ox-card .logo-circle { width: 80px; height: 80px; }
+            .ox-card .logo-symbol { font-size: 2rem; }
+            .ox-card .text-section { margin-top: 100px; }
+
+            .element-option { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+            .element-icon { font-size: 0.6rem; }
+            .shio-info h2 { font-size: 1.4rem; }
+            .element-switcher { max-width: 120px; }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+
+        .loading-overlay span {
+            color: var(--ox-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: var(--neon-glow);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay"><span>Kekuatan Kerbau Sedang Muncul...</span></div>
+    <nav class="shio-nav">
+        <a href="/" class="nav-logo">AgeCalc</a>
+        <a href="/" class="nav-back">Kembali</a>
+    </nav>
+
+    <header class="shio-header">
+        <div class="ox-card">
+            <div class="card-content">
+                <h1>Kerbau</h1>
+                <div class="logo-circle">
+                    <div class="logo-symbol">🐂</div>
+                </div>
+                <div class="border-line"></div>
+                <div class="text-section">
+                    <span class="years-element" id="yearsElement">2021 | Logam</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="element-switcher">
+        <div class="element-option" data-element="Api"><span class="element-icon">🔥</span> Api</div>
+        <div class="element-option" data-element="Kayu"><span class="element-icon">🌳</span> Kayu</div>
+        <div class="element-option" data-element="Air"><span class="element-icon">💧</span> Air</div>
+        <div class="element-option active" data-element="Logam"><span class="element-icon">⚙️</span> Logam</div>
+        <div class="element-option" data-element="Tanah"><span class="element-icon">⛰️</span> Tanah</div>
+    </div>
+
+    <main class="shio-content" id="shioContent">
+        <section class="shio-info fade-in">
+            <h2>Elemen</h2>
+            <p id="elementDesc">Kerbau Logam kuat, tak tergoyahkan, dan penuh ketahanan seperti logam yang kokoh.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kepribadian</h2>
+            <p id="personalityDesc">Tangguh, disiplin, dan pekerja keras. Kerbau Logam dikenal karena ketekunan dan kemauan kerasnya.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kekuatan Strategis</h2>
+            <ul id="strengthsList">
+                <li><strong>Ketekunan:</strong> Bisa menyelesaikan tugas apa pun.</li>
+                <li><strong>Keandalan:</strong> Selalu bisa diandalkan.</li>
+                <li><strong>Kekuatan Mental:</strong> Tetap teguh di bawah tekanan.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Risiko Tersembunyi</h2>
+            <ul id="risksList">
+                <li><strong>Keras Kepala:</strong> Sulit menerima perubahan.</li>
+                <li><strong>Terlalu Serius:</strong> Kurang fleksibel dalam situasi santai.</li>
+                <li><strong>Perfeksionis:</strong> Bisa memperlambat kemajuan.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Kecocokan Hubungan</h2>
+            <p id="compatibilityText">Kerbau Logam cocok dengan:</p>
+            <ul id="compatibilityList">
+                <li><strong>Tikus Logam 🐀:</strong> Ketahanan keduanya menciptakan ikatan yang kuat.</li>
+                <li><strong>Ular Tanah 🐍:</strong> Stabilitas Ular melengkapi kekuatan Kerbau.</li>
+                <li><strong>Ayam Logam 🐓:</strong> Keduanya disiplin dan saling mendukung.</li>
+            </ul>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Karier & Keuangan</h2>
+            <p id="careerDesc">Kerbau Logam unggul di bidang yang membutuhkan ketelitian dan ketahanan, seperti teknik atau keuangan. Keuangan stabil dengan kerja keras.</p>
+        </section>
+
+        <section class="shio-info fade-in">
+            <h2>Dinamika Cinta</h2>
+            <p id="loveDesc">Setia dan protektif, Kerbau Logam mencari pasangan yang menghargai stabilitas dan komitmennya.</p>
+        </section>
+    </main>
+
+    <footer class="shio-footer">
+        <p>© 2025 AgeCalc. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const elementData = {
+            "Api": {
+                years: "1997", // Kerbau Api (7 Feb 1997 - 27 Jan 1998)
+                elementDesc: "Kerbau Api penuh semangat, kuat, dan bersinar dengan energi yang hangat dan tegas.",
+                personalityDesc: "Berani, pekerja keras, dan penuh gairah. Kerbau Api memiliki dorongan besar untuk mencapai tujuan.",
+                strengths: [
+                    "<strong>Kebulatan Tekad:</strong> Tidak mudah menyerah.",
+                    "<strong>Energik:</strong> Selalu siap bekerja keras.",
+                    "<strong>Percaya Diri:</strong> Memiliki aura kepemimpinan."
+                ],
+                risks: [
+                    "<strong>Terlalu Dominan:</strong> Bisa mengabaikan pendapat lain.",
+                    "<strong>Emosional:</strong> Mudah tersulut dalam konflik.",
+                    "<strong>Terburu-buru:</strong> Kurang sabar dalam proses."
+                ],
+                compatibility: [
+                    "<strong>Tikus Api 🐀:</strong> Energi keduanya saling menguatkan.",
+                    "<strong>Kuda Kayu 🐎:</strong> Kreativitas Kuda melengkapi kekuatan Kerbau.",
+                    "<strong>Ayam Tanah 🐓:</strong> Stabilitas Ayam cocok dengan semangat Kerbau."
+                ],
+                careerDesc: "Kerbau Api cocok untuk karier yang membutuhkan energi dan kepemimpinan, seperti militer atau manajemen proyek. Keuangan baik jika terkontrol.",
+                loveDesc: "Penuh gairah dan setia, Kerbau Api mencari pasangan yang bisa mengimbangi intensitasnya."
+            },
+            "Kayu": {
+                years: "1985", // Kerbau Kayu (20 Feb 1985 - 8 Feb 1986)
+                elementDesc: "Kerbau Kayu kokoh, fleksibel, dan tumbuh perlahan seperti pohon yang kuat.",
+                personalityDesc: "Tenang, sabar, dan suportif. Kerbau Kayu dikenal sebagai pendukung yang andal.",
+                strengths: [
+                    "<strong>Kesabaran:</strong> Bisa menunggu hasil dengan tenang.",
+                    "<strong>Keandalan:</strong> Selalu ada untuk orang lain.",
+                    "<strong>Fleksibel:</strong> Mudah beradaptasi dengan situasi."
+                ],
+                risks: [
+                    "<strong>Terlalu Pasif:</strong> Kurang inisiatif.",
+                    "<strong>Konservatif:</strong> Menghindari risiko besar.",
+                    "<strong>Terlalu Mengalah:</strong> Bisa dimanfaatkan."
+                ],
+                compatibility: [
+                    "<strong>Tikus Kayu 🐀:</strong> Sifat suportif keduanya menciptakan harmoni.",
+                    "<strong>Ular Api 🐍:</strong> Energi Ular melengkapi ketenangan Kerbau.",
+                    "<strong>Kambing Tanah 🐐:</strong> Stabilitas Kambing cocok dengan Kerbau."
+                ],
+                careerDesc: "Kerbau Kayu unggul di bidang yang membutuhkan ketelatenan, seperti pertanian atau pendidikan. Keuangan stabil dengan pendekatan hati-hati.",
+                loveDesc: "Lembut dan setia, Kerbau Kayu mencari pasangan yang menghargai ketenangannya."
+            },
+            "Air": {
+                years: "1973", // Kerbau Air (3 Feb 1973 - 22 Jan 1974)
+                elementDesc: "Kerbau Air tenang, dalam, dan mengalir dengan kekuatan yang tersembunyi seperti air yang kuat.",
+                personalityDesc: "Bijaksana, sabar, dan penuh empati. Kerbau Air memiliki kekuatan emosional yang besar.",
+                strengths: [
+                    "<strong>Ketenangan:</strong> Tetap stabil dalam krisis.",
+                    "<strong>Empati:</strong> Memahami kebutuhan orang lain.",
+                    "<strong>Ketekunan:</strong> Bekerja tanpa lelah."
+                ],
+                risks: [
+                    "<strong>Terlalu Pendiam:</strong> Sulit mengekspresikan diri.",
+                    "<strong>Terlalu Hati-hati:</strong> Bisa kehilangan peluang.",
+                    "<strong>Sensitif:</strong> Mudah terluka."
+                ],
+                compatibility: [
+                    "<strong>Tikus Air 🐀:</strong> Keduanya intuitif dan saling memahami.",
+                    "<strong>Babi Kayu 🐖:</strong> Kelembutan Babi cocok dengan ketenangan Kerbau.",
+                    "<strong>Ular Logam 🐍:</strong> Ketahanan Ular melengkapi stabilitas Kerbau."
+                ],
+                careerDesc: "Kerbau Air cocok di bidang yang membutuhkan ketelitian, seperti akuntansi atau terapi. Keuangan aman dengan perencanaan.",
+                loveDesc: "Setia dan penuh perhatian, Kerbau Air mencari pasangan yang mendalam dan suportif."
+            },
+            "Logam": {
+                years: "2021", // Kerbau Logam (12 Feb 2021 - 31 Jan 2022)
+                elementDesc: "Kerbau Logam kuat, tak tergoyahkan, dan penuh ketahanan seperti logam yang kokoh.",
+                personalityDesc: "Tangguh, disiplin, dan pekerja keras. Kerbau Logam dikenal karena ketekunan dan kemauan kerasnya.",
+                strengths: [
+                    "<strong>Ketekunan:</strong> Bisa menyelesaikan tugas apa pun.",
+                    "<strong>Keandalan:</strong> Selalu bisa diandalkan.",
+                    "<strong>Kekuatan Mental:</strong> Tetap teguh di bawah tekanan."
+                ],
+                risks: [
+                    "<strong>Keras Kepala:</strong> Sulit menerima perubahan.",
+                    "<strong>Terlalu Serius:</strong> Kurang fleksibel dalam situasi santai.",
+                    "<strong>Perfeksionis:</strong> Bisa memperlambat kemajuan."
+                ],
+                compatibility: [
+                    "<strong>Tikus Logam 🐀:</strong> Ketahanan keduanya menciptakan ikatan yang kuat.",
+                    "<strong>Ular Tanah 🐍:</strong> Stabilitas Ular melengkapi kekuatan Kerbau.",
+                    "<strong>Ayam Logam 🐓:</strong> Keduanya disiplin dan saling mendukung."
+                ],
+                careerDesc: "Kerbau Logam unggul di bidang yang membutuhkan ketelitian dan ketahanan, seperti teknik atau keuangan. Keuangan stabil dengan kerja keras.",
+                loveDesc: "Setia dan protektif, Kerbau Logam mencari pasangan yang menghargai stabilitas dan komitmennya."
+            },
+            "Tanah": {
+                years: "2009", // Kerbau Tanah (26 Jan 2009 - 13 Feb 2010)
+                elementDesc: "Kerbau Tanah stabil, praktis, dan menjadi fondasi yang kuat seperti tanah yang subur.",
+                personalityDesc: "Realistis, sabar, dan sangat dapat diandalkan. Kerbau Tanah adalah penutup yang kokoh.",
+                strengths: [
+                    "<strong>Stabilitas:</strong> Fondasi yang kuat dalam setiap situasi.",
+                    "<strong>Praktis:</strong> Selalu memberikan solusi realistis.",
+                    "<strong>Kesabaran:</strong> Menangani segala sesuatu dengan tenang."
+                ],
+                risks: [
+                    "<strong>Terlalu Konservatif:</strong> Menolak perubahan baru.",
+                    "<strong>Lambat:</strong> Bisa tertinggal dalam situasi cepat.",
+                    "<strong>Kaku:</strong> Sulit beradaptasi dengan spontanitas."
+                ],
+                compatibility: [
+                    "<strong>Tikus Tanah 🐀:</strong> Stabilitas keduanya menciptakan harmoni.",
+                    "<strong>Kambing Air 🐐:</strong> Kelembutan Kambing melengkapi kekuatan Kerbau.",
+                    "<strong>Anjing Logam 🐕:</strong> Kesetiaan Anjing cocok dengan keandalan Kerbau."
+                ],
+                careerDesc: "Kerbau Tanah cocok di bidang yang membutuhkan stabilitas, seperti konstruksi atau administrasi. Keuangan kuat dengan pendekatan hemat.",
+                loveDesc: "Setia dan tenang, Kerbau Tanah mencari pasangan yang menghargai keandalan dan ketenangannya."
+            }
+        };
+
+        function updateContent(element) {
+            const data = elementData[element];
+            document.getElementById('yearsElement').textContent = `${data.years} | ${element}`;
+            document.getElementById('elementDesc').textContent = data.elementDesc;
+            document.getElementById('personalityDesc').textContent = data.personalityDesc;
+            document.getElementById('strengthsList').innerHTML = data.strengths.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('risksList').innerHTML = data.risks.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('compatibilityText').textContent = `Kerbau ${element} cocok dengan:`;
+            document.getElementById('compatibilityList').innerHTML = data.compatibility.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('careerDesc').textContent = data.careerDesc;
+            document.getElementById('loveDesc').textContent = data.loveDesc;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.element-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    updateContent(option.getAttribute('data-element'));
+                });
+            });
+            updateContent('Logam'); // Default ke Logam (2021)
+        });
+    </script>
+</body>
+</html>
