@@ -180,29 +180,31 @@
             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Elemen Switcher */
+        /* Elemen Switcher Vertikal */
         .element-switcher {
             display: flex;
-            justify-content: center;
-            gap: 0.0rem;
-            margin: 0rem auto;
-            max-width: 1900px;
-            padding: 0rem;
-            overflow-x: auto;
+            flex-direction: column; /* Diubah menjadi vertikal */
+            align-items: center;
+            gap: 0.5rem; /* Dikurangi untuk lebih ringkas */
+            margin: 1rem auto;
+            max-width: 200px; /* Lebar maksimum untuk vertikal */
+            padding: 0 1rem;
         }
 
         .element-option {
-            padding: 0.1rem;
+            padding: 0.5rem 1rem; /* Dikurangi untuk lebih kecil */
             background: var(--card-base);
-            border: 0.8px solid var(--rat-primary);
+            border: 2px solid var(--rat-primary);
             border-radius: 20px;
             color: var(--text-light);
-            font-weight: 900;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 0.1rem;
+            gap: 0.3rem; /* Dikurangi untuk lebih ringkas */
+            width: 100%; /* Memastikan penuh lebar container */
+            justify-content: center;
         }
 
         .element-option:hover {
@@ -218,7 +220,7 @@
         }
 
         .element-icon {
-            font-size: 0.1rem; /* Ukuran ikon lebih kecil */
+            font-size: 0.8rem; /* Ukuran ikon lebih kecil */
         }
 
         .shio-content {
@@ -314,9 +316,10 @@
             .rat-card .logo-symbol { font-size: 2.5rem; }
             .rat-card .text-section { margin-top: 120px; }
 
-            .element-option { padding: 0.5rem 1rem; font-size: 0.9rem; }
-            .element-icon { font-size: 0.8rem; }
+            .element-option { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+            .element-icon { font-size: 0.7rem; }
             .shio-info h2 { font-size: 1.6rem; }
+            .element-switcher { max-width: 150px; }
         }
 
         @media (max-width: 576px) {
@@ -327,9 +330,10 @@
             .rat-card .logo-symbol { font-size: 2rem; }
             .rat-card .text-section { margin-top: 100px; }
 
-            .element-option { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
-            .element-icon { font-size: 0.7rem; }
+            .element-option { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+            .element-icon { font-size: 0.6rem; }
             .shio-info h2 { font-size: 1.4rem; }
+            .element-switcher { max-width: 120px; }
         }
 
         /* Loading Overlay */
@@ -383,7 +387,7 @@
                 </div>
                 <div class="border-line"></div>
                 <div class="text-section">
-                    <span class="years-element" id="yearsElement">1948, 1960, 1972, 1984, 1996, 2008, 2020 | Api</span>
+                    <span class="years-element" id="yearsElement">2008 | Api</span>
                 </div>
             </div>
         </div>
@@ -454,7 +458,7 @@
     <script>
         const elementData = {
             "Api": {
-                years: "1948, 1960, 1972, 1984, 1996, 2008, 2020",
+                years: "2008", // Tikus Api (contoh terakhir: 8 Feb 2008 - 27 Jan 2009)
                 elementDesc: "Tikus Api penuh semangat, berani mengambil risiko, dan selalu mencari peluang baru dengan energi yang membara.",
                 personalityDesc: "Cerdas, ambisius, dan penuh inisiatif. Tikus Api suka memimpin dan sering menjadi pusat perhatian karena pesonanya yang dinamis.",
                 strengths: [
@@ -476,7 +480,7 @@
                 loveDesc: "Penuh gairah dan setia, Tikus Api mencari pasangan yang bisa mengimbangi energinya dan memberikan tantangan."
             },
             "Kayu": {
-                years: "1984, 1996, 2008, 2020, 2032",
+                years: "1984", // Tikus Kayu (contoh terakhir: 2 Feb 1984 - 19 Feb 1985)
                 elementDesc: "Tikus Kayu penuh vitalitas, fleksibel, dan selalu berkembang seperti pohon yang kokoh.",
                 personalityDesc: "Ramah, inovatif, dan suka bekerja sama. Tikus Kayu dikenal mudah beradaptasi dan penuh ide baru.",
                 strengths: [
@@ -498,7 +502,7 @@
                 loveDesc: "Hangat dan suportif, Tikus Kayu mencari pasangan yang bisa tumbuh bersamanya."
             },
             "Air": {
-                years: "1972, 1984, 1996, 2008, 2020",
+                years: "1996", // Tikus Air (contoh terakhir: 19 Feb 1996 - 6 Feb 1997)
                 elementDesc: "Tikus Air tenang, intuitif, dan mengalir menyesuaikan situasi seperti air yang jernih.",
                 personalityDesc: "Pemikir dalam, sensitif, dan cerdas secara emosional. Tikus Air sering jadi penutup yang bijaksana.",
                 strengths: [
@@ -520,7 +524,7 @@
                 loveDesc: "Setia dan penuh perhatian, Tikus Air mencari pasangan yang memahami sifatnya yang mendalam."
             },
             "Logam": {
-                years: "1960, 1972, 1984, 1996, 2008",
+                years: "1960", // Tikus Logam (contoh terakhir: 15 Feb 1960 - 1 Feb 1961)
                 elementDesc: "Tikus Logam kuat, teguh, dan penuh ketahanan seperti besi yang tak mudah patah.",
                 personalityDesc: "Displin, ambisius, dan fokus pada tujuan. Tikus Logam dikenal gigih dan tegas.",
                 strengths: [
@@ -542,7 +546,7 @@
                 loveDesc: "Loyal dan protektif, Tikus Logam mencari pasangan yang menghargai ketegasannya."
             },
             "Tanah": {
-                years: "1948, 1960, 1972, 1984, 1996",
+                years: "1972", // Tikus Tanah (contoh terakhir: 15 Feb 1972 - 2 Feb 1973)
                 elementDesc: "Tikus Tanah stabil, praktis, dan menjadi fondasi kuat seperti tanah yang subur.",
                 personalityDesc: "Realistis, sabar, dan dapat diandalkan. Tikus Tanah suka membangun sesuatu yang tahan lama.",
                 strengths: [
